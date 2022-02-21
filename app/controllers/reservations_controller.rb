@@ -1,35 +1,31 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @reservations = policy_scope(Reservation).where(user: current_user)
+  end
+
   def new
     @planet = Planet.find(params[:planet_id])
-    @reservation = Reservation.new
+    # @reservation = Restaurant.new
+    @reservation = current_user.reservations.new
+    authorize @reservation
   end
 
   def create
     @planet = Planet.find(params[:planet_id])
-    @user = current_user
-    @reservation = Reservation.new(reservation_params)
+    # @user = current_user
+    # @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservations.new(reservation_params)
+    authorize @reservation
     @reservation.planet = @planet
-    @reservation.user = @user
+    # @reservation.user = @user
     @reservation.status = false
     if @reservation.save
-      redirect_to reservation_path(@reservation)
+      redirect_to reservations_path
     else
       render :new
     end
-  end
-
-  def index
-    @reservations = Reservation.all
-  end
-
-  def destroy
-    @reservation.destroy
-    redirect_to reservations_path
-  end
-
-  def show
   end
 
   def edit
@@ -43,10 +39,16 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    @reservation.destroy
+    redirect_to reservations_path
+  end
+
   private
 
   def set_reservation
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
   end
 
   def reservation_params

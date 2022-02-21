@@ -1,0 +1,16 @@
+<h1>My Hostings</h1>
+<% @planets.each do |planet| %>
+  <h3><%= planet.name %></h3>
+  <ul>
+    <% planet.reservations.each do |reservation| %>
+      <li>
+        <%= reservation.planet.name %>
+        <%= reservation.start_date %>
+        <%= reservation.end_date %>
+        <%= reservation.number_of_guests %>
+        <%= reservation.status %>
+        <%= link_to "approve", "#" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

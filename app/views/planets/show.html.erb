@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
   <h1><%= @planet.name %></h1>
   <span><i class="bi bi-star-fill"></i> <%= @reviews_avg %> - </span>
@@ -12,6 +13,12 @@
           <p>Average temperature: <%= @planet.avg_temp %>°C</p>
         </div>
         <p class="pe-5 mt-3"><%= @planet.description %></p>
+        <h3>Reviews</h3>
+        <ul>
+          <% @planet.reviews.each do |review| %>
+            <li><%= review.content %></li>
+          <% end %>
+        </ul>
       </div>
       <%= render "reservations/booking_card" %>
     </div>
