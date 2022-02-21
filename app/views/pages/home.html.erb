@@ -1,6 +1,8 @@
-<h1 class="main-heading mt-5">All planets(<%= @planets.length %>)</h1>
-<div class="home-grid mt-3">
-  <% @planets.each do |planet| %>
-    <%= render "shared/card", planet: planet %>
-  <% end %>
+<div class="container">
+  <h1 class="main-heading mt-5">All planets(<%= @planets.length %>)</h1>
+  <div class="home-grid mt-3">
+    <% @planets.each do |planet| %>
+      <%= render "shared/card", planet: planet %>
+    <% end %>
+  </div>
 </div>

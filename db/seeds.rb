@@ -26,7 +26,7 @@ puts "Creating New Users..."
     # photos_url: "https://picsum.photos/200/300",
     price_per_night: rand(1..999_999),
     maximum_guests: rand(1..999_999_999),
-    description: Faker::Emotion.noun,
+    description: Faker::Lorem.paragraphs.join("\n"),
     rotation_time: "#{rand(1..999)} days",
     revolution_time: "#{rand(1..999)} days",
     radius: "#{rand(1000..999_999)} Kilometers",
@@ -35,7 +35,7 @@ puts "Creating New Users..."
   planet.user = user
   planet.save!
 
-  review = Review.new(rating: 3, content: "Too hot")
+  review = Review.new(rating: 3, content: "Too hot", user: user)
   review.planet = planet
   review.save!
 end
@@ -65,3 +65,4 @@ puts "#{User.count} Users created"
 # end
 
 puts "#{Planet.count} Planets created."
+puts "#{Review.count} Reviews created."

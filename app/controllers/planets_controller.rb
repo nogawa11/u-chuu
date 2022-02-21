@@ -1,5 +1,7 @@
 class PlanetsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -7,6 +9,11 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @reservation = current_user.reservations.new
+    authorize @reservation
+    
+   
+    @reviews_avg = @planet.reviews.average(:rating)
   end
 
   def new
@@ -55,4 +62,5 @@ class PlanetsController < ApplicationController
   def planet_params
     params.require(:planet).permit(:user_id, :name, :description, :price_per_night, :maximum_guests, :rotation_time, :revolution_time, :radius, :avg_temp, photos: [])
   end
+
 end

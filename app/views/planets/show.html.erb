@@ -1,17 +1,20 @@
-<h1><%= @planet.name %></h1>
-<% if policy(@planet).update? %>
-  <%= link_to "edit", edit_planet_path(@planet) %>
-<% end %>
 
-<% if policy(@planet).destroy? %>
-  <%= link_to "delete", planet_path(@planet), method: :delete, data: { confirm: "Are you sure?"} %>
-<% end %>
-
-<%= link_to "add a reservation", new_planet_reservation_path(@planet) %>
-<%= link_to "add a review", new_planet_review_path(@planet) %>
-<h3>Reviews</h3>
-<ul>
-  <% @planet.reviews.each do |review| %>
-    <li><%= review.content %></li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <h1><%= @planet.name %></h1>
+  <span><i class="bi bi-star-fill"></i> <%= @reviews_avg %> - </span>
+  <span><%= @planet.reviews.count %> review(s)</span>
+  <div>
+    <div class="row mt-3">
+      <div class="col col-6 pe-5">
+        <div class="border-top border-bottom pb-1 pt-3">
+          <p>Rotation time: <%= @planet.rotation_time %> days</p>
+          <p>Revolution time: <%= @planet.revolution_time %> days</p>
+          <p>Radius: <%= @planet.radius %> km</p>
+          <p>Average temperature: <%= @planet.avg_temp %>°C</p>
+        </div>
+        <p class="pe-5 mt-3"><%= @planet.description %></p>
+      </div>
+      <%= render "reservations/booking_card" %>
+    </div>
+  </div>
+</div>
