@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Removing Old Users..."
+Review.destroy_all
+Reservation.destroy_all
 Planet.destroy_all
 User.destroy_all
 

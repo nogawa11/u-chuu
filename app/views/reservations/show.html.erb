@@ -1,0 +1,5 @@
+<%= @reservation.planet.name %>
+<%= @reservation.start_date %>
+<%= @reservation.end_date %>
+<%= link_to "edit", edit_reservation_path(@reservation) %>
+<%= link_to "delete", reservation_path(@reservation), method: :delete, data: { confirm: "Are you sure?"} %>
