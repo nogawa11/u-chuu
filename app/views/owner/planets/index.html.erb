@@ -9,12 +9,3 @@
 
   <% end %>
 </ul>
-<%= link_to "Add a planet", new_planet_path %>
-<% if policy(@planet).update? %>
-  <%= link_to "edit", edit_planet_path(@planet) %>
-<% end %>
-<% if policy(@planet).destroy? %>
-  <%= link_to "delete", planet_path(@planet), method: :delete, data: { confirm: "Are you sure?"} %>
-<% end %>
-<%= link_to "add a reservation", new_planet_reservation_path(@planet) %>
-<%= link_to "add a review", new_planet_review_path(@planet) %>
