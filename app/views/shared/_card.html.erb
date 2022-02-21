@@ -2,9 +2,9 @@
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card__planet-info">
     <div>
-      <h2>Planet name</h2>
-      <p>Price</p>
+      <h2><%= @planet.name %></h2>
+      <p><%= @planet.price_per_night %></p>
     </div>
-    <h2 class="card__planet-reviews">Reviews</h2>
+    <h2 class="card__planet-reviews"><%= @planet.reviews %></h2>
   </div>
 </div>
