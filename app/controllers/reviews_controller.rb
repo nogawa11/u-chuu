@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new
+    @review = Review.new(review_params)
     @user = current_user
     @planet = Planet.find(params[:planet_id])
     @review.user = @user
