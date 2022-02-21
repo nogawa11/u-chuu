@@ -19,7 +19,7 @@ puts "Creating New Users..."
     email: Faker::Internet.email,
     password: "password"
   )
-  user.save
+  user.save!
   planet = Planet.new(
     name: Faker::Space.planet,
     location: Faker::TvShows::StarTrek.location,
@@ -33,11 +33,11 @@ puts "Creating New Users..."
     avg_temp: "#{rand(-500..500)} Celsius"
   )
   planet.user = user
-  planet.save
+  planet.save!
 
   review = Review.new(rating: 3, content: "Too hot")
   review.planet = planet
-  review.save
+  review.save!
 end
 
 puts "#{User.count} Users created"
@@ -65,3 +65,4 @@ puts "#{User.count} Users created"
 # end
 
 puts "#{Planet.count} Planets created."
+puts "#{Review.count} Reviews created."
