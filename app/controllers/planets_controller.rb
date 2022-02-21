@@ -1,5 +1,7 @@
 class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
+  has_many_attached :photos
+
   def index
     @planets = Planet.all
   end
@@ -41,6 +43,6 @@ class PlanetsController < ApplicationController
   end
 
   def planet_params
-    params.require(:planet).permit(:user_id, :name, :description, :price_per_night, :maximum_guests, :rotation_time, :revolution_time, :radius,:avg_temp)
+    params.require(:planet).permit(:user_id, :name, :description, :price_per_night, :maximum_guests, :rotation_time, :revolution_time, :radius, :avg_temp, photos: [])
   end
 end

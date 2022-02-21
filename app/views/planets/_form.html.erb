@@ -7,5 +7,6 @@
 <%= f.input :revolution_time %>
 <%= f.input :radius %>
 <%= f.input :avg_temp %>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
 <%= f.submit %>
 <% end %>
