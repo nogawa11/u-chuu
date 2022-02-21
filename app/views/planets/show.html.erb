@@ -1,2 +1,3 @@
 <%= @planet.name %>
 <%= link_to "edit", edit_planet_path(@planet) %>
+<%= link_to "delete", planet_path(@planet), method: :delete, data: { confirm: "Are you sure?"} %>
