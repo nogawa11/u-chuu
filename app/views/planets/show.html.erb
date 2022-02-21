@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="show-container">
+    <div>
+      <% @planets.each do |planet| %>
+        <%= link_to planet_path(planet), class:"card" do %>
+          <img src="" alt="">
+          <div class="card__body">
+            <h2><%= planet.name %></h2>
+            <p><%= planet.description %></p>
+            <p><%= planet.price_per_night %></p>
+            <p><%= @review_avg %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div>
+      <h1><%= @planet.name %></h1>
+    </div>
+  </div>
+</div>
