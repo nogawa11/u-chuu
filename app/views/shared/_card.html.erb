@@ -1,10 +1,9 @@
-
 <%= link_to planet_path(planet), class:"card card-home" do %>
-
   <img class="card__planet-image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card__planet-info">
     <h2 class="planet-name h3"><%= planet.name %></h2>
     <p class="planet-price"><strong><%= number_to_currency(planet.price_per_night) %></strong>/night</p>
-    <p class="card__planet-reviews">Rating: <%= planet.reviews.present? ? "#{planet.reviews.first.rating}/5" : "no ratings" %></p>
+    <p class="card__planet-reviews">Rating:
+    <%= planet.reviews.present? ? "#{planet.reviews.reduce(0) { |sum, curr| curr.rating + sum } / planet.reviews.size }/5" : "no ratings" %></p>
   </div>
 <% end %>
