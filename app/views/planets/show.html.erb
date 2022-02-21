@@ -1,4 +1,3 @@
-
 <div class="container mt-5">
   <h1><%= @planet.name %></h1>
   <span><i class="bi bi-star-fill"></i> <%= @reviews_avg %> - </span>
@@ -9,24 +8,24 @@
         <div class="border-top border-bottom pb-1 pt-3">
           <p>Rotation time: <%= @planet.rotation_time %> days</p>
           <p>Revolution time: <%= @planet.revolution_time %> days</p>
-          <p>Radius: <%= @planet.radius %> km</p>
+          <p>Radius: <%= number_with_delimiter(@planet.radius, :delimiter => ',') %> km</p>
           <p>Average temperature: <%= @planet.avg_temp %>°C</p>
         </div>
         <p class="pe-5 mt-3"><%= @planet.description %></p>
-        <h3>Reviews</h3>
-        <ul>
-          <% @planet.reviews.each do |review| %>
-            <li><%= review.content %></li>
-          <% end %>
-        </ul>
       </div>
       <%= render "reservations/booking_card" %>
     </div>
+    <div class="d-flex gap-3 mt-5 mb-3 col col-6">
+      <h3>Reviews</h3>
+      <%= link_to "Add a review", new_planet_review_path(@planet), class:"btn btn-outline-primary" %>
+    </div>
+    <ul class="list-group col col-6">
+      <% @planet.reviews.each do |review| %>
+        <li class="list-group-item">
+          <%= review.content %> - <%= review.rating %>
+          <i class="fas fa-star warning"></i>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <%= link_to "add a review", new_planet_review_path(@planet) %>
-  <ul>
-    <% @planet.reviews.each do |review| %>
-      <li><%= review.content %><%= review.rating %></li>
-    <% end %>
-  </ul>
 </div>
