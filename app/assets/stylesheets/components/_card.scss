@@ -6,10 +6,24 @@
 
   &__planet-info {
     padding: 0.75rem 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__planet-reviews {
+    justify-self: end;
+    align-self: center;
+    position: relative;
+    top: 5px;
   }
 
   &__planet-image {
     width: 100%;
     height: 200px;
   }
+}
+
+.planet-price  {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3
 }

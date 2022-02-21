@@ -1,8 +1,12 @@
+<<<<<<< Updated upstream
 <%= link_to planet_path(planet.id), class:"card card--home" do %>
+=======
+<%= link_to planet_path(planet), class:"card card-home" do %>
+>>>>>>> Stashed changes
   <img class="card__planet-image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card__planet-info">
     <h2 class="planet-name h3"><%= planet.name %></h2>
     <p class="planet-price"><strong><%= number_to_currency(planet.price_per_night) %></strong>/night</p>
-    <p class="card__planet-reviews"><%= planet.reviews.first %></p>
+    <p class="card__planet-reviews">Rating: <%= planet.reviews.first.rating %>/5</p>
   </div>
 <% end %>
