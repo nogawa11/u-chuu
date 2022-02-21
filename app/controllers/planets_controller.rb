@@ -1,9 +1,11 @@
 class PlanetsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @planets = Planet.all
+    @planets = policy_scope(Planet)
   end
 
   def show
@@ -14,14 +16,18 @@ class PlanetsController < ApplicationController
   end
 
   def new
-    @planet = Planet.new
-    @user = current_user
+    # @planet = Planet.new
+    # @user = current_user
+    @planet = current_user.planets.new
+    authorize @planet
   end
 
   def create
-    @planet = Planet.new(planet_params)
-    @user = current_user
-    @planet.user = @user
+    # @planet = Planet.new(planet_params)
+    # @user = current_user
+    # @planet.user = @user
+    @planet = current_user.planets.new(planet_params)
+    authorize @planet
     if @planet.save
       redirect_to planet_path(@planet)
     else
@@ -49,6 +55,7 @@ class PlanetsController < ApplicationController
 
   def set_planet
     @planet = Planet.find(params[:id])
+    authorize @planet
   end
 
   def planet_params
