@@ -32,6 +32,10 @@ puts "Creating New Users..."
   )
   planet.user = user
   planet.save
+
+  review = Review.new(rating: 3, content: "Too hot")
+  review.planet = planet
+  review.save
 end
 
 puts "#{User.count} Users created"
