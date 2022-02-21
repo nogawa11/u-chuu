@@ -19,7 +19,7 @@ class PlanetsController < ApplicationController
     # @planet = Planet.new
     # @user = current_user
     @planet = current_user.planets.new
-    
+    authorize @planet
   end
 
   def create
