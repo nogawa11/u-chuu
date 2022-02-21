@@ -1,12 +1,5 @@
 class PlanetsController < ApplicationController
-<<<<<<< HEAD
-  def show
-    @planets = Planet.all
-    @planet = Planet.find(params[:id])
-    @reviews_avg = @planet.reviews.average(:rating)
-  end
 
-=======
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,6 +7,9 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @planets = Planet.all
+    @planet = Planet.find(params[:id])
+    @reviews_avg = @planet.reviews.average(:rating)
   end
 
   def new
@@ -57,5 +53,5 @@ class PlanetsController < ApplicationController
   def planet_params
     params.require(:planet).permit(:user_id, :name, :description, :price_per_night, :maximum_guests, :rotation_time, :revolution_time, :radius, :avg_temp, photos: [])
   end
->>>>>>> e09d650496b434186d5a6719c9fad86a1c9dbd37
+
 end
