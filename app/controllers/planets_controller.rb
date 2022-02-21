@@ -29,7 +29,7 @@ class PlanetsController < ApplicationController
     @planet = current_user.planets.new(planet_params)
     authorize @planet
     if @planet.save
-      redirect_to planet_path(@planet)
+      redirect_to owner_planets_path
     else
       render :new
     end
@@ -40,7 +40,7 @@ class PlanetsController < ApplicationController
 
   def update
     if @planet.update(planet_params)
-      redirect_to planet_path(@planet)
+      redirect_to owner_planets_path
     else
       render :edit
     end
