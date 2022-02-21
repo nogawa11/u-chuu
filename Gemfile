@@ -32,8 +32,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Added gems
 gem 'autoprefixer-rails', '10.2.5'
+gem 'bootstrap', '~> 5.1.3'
+gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'pundit'
 gem 'simple_form'
 gem 'bootstrap', '~> 5.1.3'
 gem 'htmlbeautifier'
