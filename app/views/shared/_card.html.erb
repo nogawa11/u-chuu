@@ -5,6 +5,6 @@
   <div class="card__planet-info">
     <h2 class="planet-name h3"><%= planet.name %></h2>
     <p class="planet-price"><strong><%= number_to_currency(planet.price_per_night) %></strong>/night</p>
-    <p class="card__planet-reviews">Rating: <%= planet.reviews.first.rating %>/5</p>
+    <p class="card__planet-reviews">Rating: <%= planet.reviews.present? ? "#{planet.reviews.first.rating}/5" : "no ratings" %></p>
   </div>
 <% end %>
