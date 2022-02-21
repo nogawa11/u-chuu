@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="show-container">
     <div>
@@ -20,5 +21,12 @@
   </div>
 </div>
 <%= @planet.name %>
+<h1><%= @planet.name %></h1>
 <%= link_to "edit", edit_planet_path(@planet) %>
 <%= link_to "delete", planet_path(@planet), method: :delete, data: { confirm: "Are you sure?"} %>
+<%= link_to "add a reservation", new_planet_reservation_path(@planet) %>
+<%= link_to "add a review", new_planet_review_path(@planet) %>
+<h3>Reviews</h3>
+<% @planet.reviews.each do |review| %>
+  <%= review.content %>
+<% end %>

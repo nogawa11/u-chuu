@@ -1,0 +1,4 @@
+<h1>Reservations</h1>
+<% @reservations.each do |reservation| %>
+  <%= link_to reservation.planet.name, reservation_path(reservation) %>
+<% end %>
