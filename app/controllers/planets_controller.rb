@@ -1,6 +1,5 @@
 class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
-  has_many_attached :photos
 
   def index
     @planets = Planet.all
