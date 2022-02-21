@@ -1,3 +1,7 @@
 <%= @planet.name %>
 <%= link_to "edit", edit_planet_path(@planet) %>
 <%= link_to "delete", planet_path(@planet), method: :delete, data: { confirm: "Are you sure?"} %>
+<%= link_to "add a reservation", new_planet_reservation_path(@planet) %>
+<%= link_to "add a review", new_planet_review_path(@planet) %>
+<%= @planet.reviews%>
+<% end %>

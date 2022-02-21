@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :planets
   resources :planets do
     resources :reviews, only: [:new, :create]
+    resources :reservations, only: [:new, :create]
   end
   namespace :owner do
     resources :planets, only: :index
