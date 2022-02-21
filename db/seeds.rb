@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Removing Old Users..."
+Planet.destroy_all
 User.destroy_all
 
 puts "Creating New Users..."
