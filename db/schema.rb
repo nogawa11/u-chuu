@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_042600) do
+ActiveRecord::Schema.define(version: 2022_02_21_052054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "planets", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "price_per_night"
+    t.integer "maximum_guests"
+    t.string "description"
+    t.integer "rotation_time"
+    t.integer "revolution_time"
+    t.integer "radius"
+    t.integer "avg_temp"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_planets_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.boolean "status"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "number_of_guests"
+    t.bigint "planet_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_reservations_on_planet_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "planet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_reviews_on_planet_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +67,9 @@ ActiveRecord::Schema.define(version: 2022_02_21_042600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "planets", "users"
+  add_foreign_key "reservations", "planets"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "planets"
+  add_foreign_key "reviews", "users"
 end
