@@ -9,7 +9,8 @@ class PlanetsController < ApplicationController
   end
 
   def show
-    
+    @reservation = current_user.reservations.new
+    authorize @reservation
     
    
     @reviews_avg = @planet.reviews.average(:rating)
