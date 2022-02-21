@@ -1,10 +1,8 @@
 <div class="card card--home">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <img class="card__planet-image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card__planet-info">
-    <div>
-      <h2><%= @planet.name %></h2>
-      <p><%= @planet.price_per_night %></p>
-    </div>
-    <h2 class="card__planet-reviews"><%= @planet.reviews %></h2>
+    <h2 class="planet-name h3"><%= planet.name %></h2>
+    <p class="planet-price"><strong><%= number_to_currency(planet.price_per_night) %></strong>/night</p>
+    <p class="card__planet-reviews"><%= planet.reviews.first %></p>
   </div>
 </div>

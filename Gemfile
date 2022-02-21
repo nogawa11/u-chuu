@@ -38,6 +38,8 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'pundit'
 gem 'simple_form'
+gem 'bootstrap', '~> 5.1.3'
+gem 'htmlbeautifier'
 
 group :development, :test do
   gem 'pry-byebug'
