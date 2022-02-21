@@ -6,10 +6,24 @@
     <div class="row mt-3">
       <div class="col col-6 pe-5">
         <div class="border-top border-bottom pb-1 pt-3">
-          <p>Rotation time: <%= @planet.rotation_time %> days</p>
-          <p>Revolution time: <%= @planet.revolution_time %> days</p>
-          <p>Radius: <%= number_with_delimiter(@planet.radius, :delimiter => ',') %> km</p>
-          <p>Average temperature: <%= @planet.avg_temp %>°C</p>
+          <div class="row">
+            <p class="col col-6">
+              Rotation time: <%= @planet.rotation_time %> days
+            </p>
+            <p class="col col-6">
+              Revolution time: <%= @planet.revolution_time %> days
+            </p>
+          </div>
+          <div class="row">
+            <p class="col col-6">
+              Radius:
+              <%= number_with_delimiter(@planet.radius, :delimiter => ',') %> km
+            </p>
+            <p class="col col-6">
+              Average temperature: <%= @planet.avg_temp %>°C
+            </p>
+          </div>
+          <p>Location: <%= @planet.location %> g</p>
         </div>
         <p class="pe-5 mt-3"><%= @planet.description %></p>
       </div>
