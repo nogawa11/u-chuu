@@ -3,4 +3,8 @@ class Planet < ApplicationRecord
   has_many :reservations
   has_many :reviews
   has_many_attached :photos
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :price_per_night, presence: true
+  validates :maximum_guests, presence: true
 end

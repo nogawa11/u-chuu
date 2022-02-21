@@ -1,4 +1,4 @@
-class Owner::PlanetsController < ApplicationController
+class Owner::ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
