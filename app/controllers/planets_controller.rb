@@ -1,5 +1,7 @@
 class PlanetsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -7,8 +9,8 @@ class PlanetsController < ApplicationController
   end
 
   def show
-    @planets = Planet.all
-    @planet = Planet.find(params[:id])
+    # @reservation = current_user.reservations.new
+    # authorize @reservation
     @reservation = Reservation.new
     @reviews_avg = @planet.reviews.average(:rating)
   end
@@ -27,7 +29,7 @@ class PlanetsController < ApplicationController
     @planet = current_user.planets.new(planet_params)
     authorize @planet
     if @planet.save
-      redirect_to planet_path(@planet)
+      redirect_to owner_planets_path
     else
       render :new
     end
@@ -38,7 +40,7 @@ class PlanetsController < ApplicationController
 
   def update
     if @planet.update(planet_params)
-      redirect_to planet_path(@planet)
+      redirect_to owner_planets_path
     else
       render :edit
     end

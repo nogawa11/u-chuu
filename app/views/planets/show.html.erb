@@ -23,4 +23,10 @@
       <%= render "reservations/booking_card" %>
     </div>
   </div>
+  <%= link_to "add a review", new_planet_review_path(@planet) %>
+  <ul>
+    <% @planet.reviews.each do |review| %>
+      <li><%= review.content %><%= review.rating %></li>
+    <% end %>
+  </ul>
 </div>
