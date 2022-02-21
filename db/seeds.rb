@@ -26,7 +26,7 @@ puts "Creating New Users..."
     # photos_url: "https://picsum.photos/200/300",
     price_per_night: rand(1..999_999),
     maximum_guests: rand(1..999_999_999),
-    description: Faker::Emotion.noun,
+    description: Faker::Lorem.paragraphs.join("\n"),
     rotation_time: "#{rand(1..999)} days",
     revolution_time: "#{rand(1..999)} days",
     radius: "#{rand(1000..999_999)} Kilometers",

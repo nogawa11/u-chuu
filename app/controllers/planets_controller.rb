@@ -9,6 +9,7 @@ class PlanetsController < ApplicationController
   def show
     @planets = Planet.all
     @planet = Planet.find(params[:id])
+    @reservation = Reservation.new
     @reviews_avg = @planet.reviews.average(:rating)
   end
 
