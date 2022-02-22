@@ -4,3 +4,15 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
+
+.home {
+  background-color: black;
+  // background-image: url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80");
+  // background-position: fixed;
+
+  h3 {
+    color: rgb(241, 241, 241);
+    font-family: 'Trispace', sans-serif;
+    font-size: 24px;
+  }
+}
