@@ -3,18 +3,19 @@
   <ul>
     <% @reservations.each do |reservation| %>
       <li class="p-2", style="list-style-type: none">
-        <div class="d-flex flex-column border border-4 border-start-0 border-end-0">
-          <div class="p-2">
+      <!--border border-2 border-top-0 border-bottom-0-->
+        <div class="d-flex flex-column shadow bg-secondary bg-opacity-10">
+          <div class="p-3 pb-0">
             <%= link_to edit_reservation_path(reservation), class: "text-decoration-none" do %>
-              <%= reservation.planet.name %>
+              <p class="fs-4"><%= reservation.planet.name %>
               <%= reservation.start_date %>
               <%= reservation.end_date %>
-              <%= reservation.number_of_guests %>
+              <%= reservation.number_of_guests %></p>
             <% end %>
           </div>
-          <div class="p-2">
-            <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
-            <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none" %>
+          <div class="p-3 pt-0">
+            <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none", style: "border-radius: 5px" %>
+            <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none", style: "border-radius: 5px", method: :delete, data: { confirm: "Are you sure?"} %>
           </div>
         </div>
       </li>
