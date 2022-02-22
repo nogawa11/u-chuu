@@ -33,31 +33,21 @@
                 <h1>Price details</h1>
               </div>
               <div class=“price”>
-                <div>
-                  $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights
-                </div>
-                <div>
-                  $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %>
-                </div>
+                $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights -
+                $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %>
               </div>
               <div class=“price”>
-                <div>
-                  Service fee
-                </div>
-                <div>
-                  $999
-                </div>
+                Service fee -
+                $999
               </div>
               <div class=“price”>
-                <div>
-                  <strong>Total</strong>
-                </div>
-                <div>
-                  $<%= (@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999 %>
-                </div>
+                <strong>Total - </strong>
+                $<%= (@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999 %>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
