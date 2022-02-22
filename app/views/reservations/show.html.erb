@@ -1,30 +1,63 @@
-<div class="container mt-5 pt-5">
-  <h1 class="main-heading mt-10">Reservation Details</h1>
-  <div>
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <p><strong>Dates: </strong></p>
-        <p><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
-        <p><strong>Guests: </strong></p>
-        <p><%= @reservation.number_of_guests %> guests</p>
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="card-reservation">
-          <div class="card-details m-5">
-            <% if @reservation.planet.photos.first.present? %>
-              <%= cl_image_tag(@reservation.planet.photos.first.key) %>
-            <% else %>
-              <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
-            <% end %>
-            <div class="card-reservation-infos">
-              <h2><%= @reservation.planet.name %></h2>
-              <p><%= @reservation.planet.description %></p>
-              <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
-              <span><%= @reservation.planet.reviews.count %> review(s)</span>
+<div class="reservation">
+  <div class="container">
+    <h1 class="main-heading mt-10">Reservation Details</h1>
+    <div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="details">
+            <p><strong>Dates: </strong></p>
+            <p><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
+            <p><strong>Guests: </strong></p>
+            <p><%= @reservation.number_of_guests %> guests</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="card-reservation">
+            <div class="card-details m-5">
+              <div class="card-product">
+                <% if @reservation.planet.photos.first.present? %>
+                  <%= cl_image_tag(@reservation.planet.photos.first.key) %>
+                <% else %>
+                  <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
+                <% end %>
+                <div class="card-product-infos">
+                  <div class="card-reservation-infos">
+                    <h2><%= @reservation.planet.name %></h2>
+                    <p><%= @reservation.planet.description %></p>
+                    <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
+                    <span><%= @reservation.planet.reviews.count %> review(s)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="price-details">
+                <h1>Price details</h1>
+              </div>
+              <div class=“price”>
+                <div>
+                  $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights
+                </div>
+                <div>
+                  $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %>
+                </div>
+              </div>
+              <div class=“price”>
+                <div>
+                  Service fee
+                </div>
+                <div>
+                  $999
+                </div>
+              </div>
+              <div class=“price”>
+                <div>
+                  <strong>Total</strong>
+                </div>
+                <div>
+                  $<%= (@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999 %>
+                </div>
+              </div>
             </div>
-            <h2 class="card-reservation-pricing">Price: $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights = $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %></h2>
           </div>
         </div>
       </div>
     </div>
-  </div>

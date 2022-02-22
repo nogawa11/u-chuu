@@ -1,0 +1,25 @@
+.reservation {
+  background-color: black;
+  padding-top: 80px;
+}
+
+.container {
+  margin-top: 5px;
+  padding: 8px;
+}
+
+.main-heading, .details {
+  color: white;
+}
+
+.price-details {
+  border-top: 1px solid rgb(180, 174, 174);
+  margin-top: 16px;
+  padding-top: 24px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
