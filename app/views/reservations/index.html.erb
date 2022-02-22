@@ -8,6 +8,7 @@
       <%= reservation.number_of_guests %>
       <%= link_to "edit", edit_reservation_path(reservation) %>
       <%= link_to "delete", reservation_path(reservation), method: :delete, data: { confirm: "Are you sure?"} %>
+      <%= link_to "see details", reservation_path(reservation) %>
     </li>
   <% end %>
 </ul>

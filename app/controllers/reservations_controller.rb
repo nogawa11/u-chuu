@@ -28,6 +28,10 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def show
+    authorize @reservation
+  end
+
   def edit
   end
 
