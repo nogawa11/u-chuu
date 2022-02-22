@@ -1,10 +1,12 @@
 <div class="container mt-5">
-  <h1 class="main-heading mt-5">My Reservation</h1>
+  <h1 class="main-heading mt-5">Reservation Details</h1>
   <div>
     <div class="row">
       <div class="col col-6">
-        <p>Dates: <%= @reservation.start_date %> - <%= @reservation.end_date %></p>
-        <p>Guests: <%= @reservation.number_of_guests %> guests</p>
+        <p>Dates: </p>
+        <p><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
+        <p>Guests: </p>
+        <p><%= @reservation.number_of_guests %> guests</p>
       </div>
       <div class="col col-6">
         <div class="card-trip">
@@ -13,7 +15,6 @@
             <h2><%= @reservation.planet.name %></h2>
             <p><%= @reservation.planet.description %></p>
             <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
-            <span><%= @planet.reviews.count %> review(s)</span>
             <br>
             <p class="card-trip-pricing"><strong>Price:</strong> $<%= @reservation.planet.price_per_night %> x <%= @reservation.end_date - @reservation.start_date %> nights = </p>
           </div>
@@ -21,7 +22,6 @@
       </div>
     </div>
     <div class="row">
-      <%= link_to "edit", edit_reservation_path(reservation) class="btn btn-default" %>
     </div>
   </div>
 </div>
