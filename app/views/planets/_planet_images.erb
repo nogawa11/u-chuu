@@ -1,0 +1,5 @@
+  <div class="planet-images mt-3 mb-4">
+    <% 5.times do |index| %>
+      <%= image_tag "#{@planet.name.downcase}/#{@planet.name.downcase}#{index + 1}" %>
+    <% end %>
+  </div>
