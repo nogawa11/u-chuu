@@ -1,4 +1,4 @@
-<div class="container mt-5" style="background-color: gray">
+<div class="container mt-5 pt-5">
   <h1 class="main-heading mt-10">Reservation Details</h1>
   <div>
     <div class="row">
@@ -22,7 +22,7 @@
               <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
               <span><%= @reservation.planet.reviews.count %> review(s)</span>
             </div>
-            <h2 class="card-reservation-pricing"><strong>Price:</strong> $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights = $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %></h2>
+            <h2 class="card-reservation-pricing">Price: $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights = $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %></h2>
           </div>
         </div>
       </div>
