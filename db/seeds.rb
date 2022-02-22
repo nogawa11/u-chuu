@@ -39,6 +39,19 @@ end
   review.save!
 end
 
+10.times do
+  reservation = Reservation.new(
+    status: Faker::Boolean.boolean,
+    start_date: Faker::Date.forward(days: rand(1..30)),
+    end_date: Faker::Date.forward(days: rand(31..90)),
+    number_of_guests: rand(1..999_999),
+    planet: Planet.all.sample,
+    user: User.all.sample
+  )
+  reservation.save!
+end
+
 puts "#{User.count} Users created"
 puts "#{Planet.count} Planets created."
 puts "#{Review.count} Reviews created."
+puts "#{Reservation.count} Reservations created."

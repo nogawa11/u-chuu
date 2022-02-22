@@ -1,8 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= render "shared/logo" %>
-    <% end %>
+    <div class="d-flex">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag("logo.png", alt: "logo") %>
+      <% end %>
+      <div class="nav-item d-flex">
+        <form action="/planets" method="get" class="form-inline d-flex ms-2 mt-2 mb-2" style ="width: 350px">
+            <input type="hidden" name="authenticity_token" value="fUrBymmVzFG49YTQE9xKfohttEtW7eHnui2WT6KWpRXT6g9dz73lhZ7bRdHH+RuV/TFoB23OG5l1eo731o8l6g==">
+            <input type="search" name="search" value = "<%= params[:search] %>" placeholder="Explore planets" class="form-control input-form search-bar" >
+            <input type="submit" value="Search" class="search-button">
+        </form>
+      </div>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,10 +21,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "/planets", class: "nav-link" %>
+            <%= link_to "See all planets", "/planets", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?cs=srgb&dl=pexels-pixabay-87651.jpg&fm=jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Planets", "/owner/planets", class: "dropdown-item" %>
               <%= link_to "My Reservations", "/reservations", class: "dropdown-item" %>
