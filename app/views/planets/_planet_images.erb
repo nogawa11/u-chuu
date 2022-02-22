@@ -1,5 +1,8 @@
-  <div class="planet-images mt-3 mb-4">
-    <% 5.times do |index| %>
-      <%= image_tag "#{@planet.name.downcase}/#{@planet.name.downcase}#{index + 1}" %>
-    <% end %>
-  </div>
+<div class="planet-images mt-3 mb-4">
+  <% Dir.each_child("app/assets/images/#{Planet.find(params[:id]).name.downcase}").each do |image| %>
+
+    <%= image_tag "#{Planet.find(params[:id]).name.downcase}/#{image}" %>
+
+  <% end %>
+
+</div>
