@@ -139,6 +139,8 @@
   width: 40px;
 }
 
+// reservations show page
+=======
 // planets
 
 .card-planet {
@@ -295,16 +297,55 @@
   margin: 0;
 }
 
-.card-reservation-pricing {
-  border-top: 1px solid rgb(180, 174, 174);
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-// .card-reservation .card-reservation-infos {
-//   // padding: 16px;
-//   // display: flex;
-//   // justify-content: space-between;
-//   // align-items: flex-end;
-//   // position: relative;
+.card-product img {
+  height: 100%;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 10px
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-reservation-infos {
+  margin-bottom: 24px;
+}
+
+// move this code
+.price-details {
+  border-top: 1px solid rgb(180, 174, 174);
+  margin-top: 16px;
+  padding-top: 24px;
+}
+
+// .price {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
 // }
 
 .reservations-cards {
