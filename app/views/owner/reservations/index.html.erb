@@ -1,10 +1,11 @@
 <div class="container mt-5 pt-5">
-  <h1 class="mb-3">My Hostings</h1>
+  <h1 class="mb-3 trispace">My Hostings</h1>
   <% @planets.each do |planet| %>
-    <h3 class="h4"><%= planet.name %></h3>
+    <h3 class="h4 gray"><%= planet.name %></h3>
     <ul class="list-group">
       <% planet.reservations.each do |reservation| %>
         <li class="list-group-item">
+          <%= reservation.user.email %>
           <%= reservation.planet.name %>
           <%= reservation.start_date %>
           <%= reservation.end_date %>
