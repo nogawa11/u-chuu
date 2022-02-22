@@ -1,12 +1,32 @@
-<%= simple_form_for @planet do |f| %>
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.input :price_per_night %>
-<%= f.input :maximum_guests %>
-<%= f.input :rotation_time %>
-<%= f.input :revolution_time %>
-<%= f.input :radius %>
-<%= f.input :avg_temp %>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
-<%= f.submit %>
-<% end %>
+<div class="col col-6 m-auto">
+  <%= simple_form_for @planet do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <div class="row">
+      <div class="col col-6">
+        <%= f.input :price_per_night %>
+      </div>
+      <div class="col col-6">
+        <%= f.input :maximum_guests %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-6">
+        <%= f.input :rotation_time %>
+      </div>
+      <div class="col col-6">
+        <%= f.input :revolution_time %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-6">
+        <%= f.input :radius %>
+      </div>
+      <div class="col col-6">
+        <%= f.input :avg_temp %>
+      </div>
+    </div>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Create planet", class:"btn btn-lg btn-primary mt-3" %>
+  <% end %>
+</div>
