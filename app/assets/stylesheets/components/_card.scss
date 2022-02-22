@@ -187,3 +187,16 @@
 .card-reservation-infos {
   margin-bottom: 24px;
 }
+
+// move this code
+.price-details {
+  border-top: 1px solid rgb(180, 174, 174);
+  margin-top: 16px;
+  padding-top: 24px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
