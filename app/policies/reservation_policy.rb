@@ -15,7 +15,7 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || record.planet.user == user
   end
 
   def destroy?
