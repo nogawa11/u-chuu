@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <h1><%= @planet.name %></h1>
-  <span><i class="bi bi-star-fill"></i> <%= @reviews_avg %> - </span>
+  <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
   <span><%= @planet.reviews.count %> review(s)</span>
   <div>
     <div class="row mt-3">
