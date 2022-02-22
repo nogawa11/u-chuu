@@ -11,17 +11,20 @@
       <div class="col-12 col-lg-6">
         <div class="card-reservation">
           <div class="card-details m-5">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="planet">
+            <% if @reservation.planet.photos.first.present? %>
+              <%= cl_image_tag(@reservation.planet.photos.first.key) %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
+            <% end %>
             <div class="card-reservation-infos">
               <h2><%= @reservation.planet.name %></h2>
               <p><%= @reservation.planet.description %></p>
-              <span>
-                <i class="fas fa-star warning"></i> - <%= @reservation.planet.reviews.present? ? "#{@reservation.planet.reviews.reduce(0) { |sum, curr| curr.rating + sum } / @reservation.planet.reviews.size }/5" : "no ratings" %></p>
-            </span>
-            <h2 class="card-reservation-pricing"><strong>Price:</strong> $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights = $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %></h2>
+              <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
+              <span><%= @reservation.planet.reviews.count %> review(s)</span>
+              <h2 class="card-reservation-pricing"><strong>Price:</strong> $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights = $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %></h2>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
