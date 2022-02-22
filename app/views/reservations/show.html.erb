@@ -1,1 +1,26 @@
-<%= @reservation.planet.name %>
+<div class="container mt-5">
+  <h1 class="main-heading mt-5">My Reservation</h1>
+  <div>
+    <div class="row">
+      <div class="col col-6">
+        <p>Dates: <%= @reservation.start_date %> - <%= @reservation.end_date %></p>
+        <p>Guests: <%= @reservation.number_of_guests %> guests</p>
+      </div>
+      <div class="col col-6">
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="planet">
+          <div class="card-trip-infos">
+            <h2><%= @reservation.planet.name %></h2>
+            <p><%= @reservation.planet.description %></p>
+            <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
+            <span><%= @planet.reviews.count %> review(s)</span>
+          </div>
+          <h2 class="card-trip-pricing">Price: $<%= %> x <%= %> nights = </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <%= link_to "edit", edit_reservation_path(reservation) class="btn btn-default" %>
+    </div>
+  </div>
+</div>
