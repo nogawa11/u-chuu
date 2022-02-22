@@ -1,23 +1,22 @@
-<div class="container">
-  <h1 class="mt-3">Reservations</h1>
-  <ul>
-    <% @reservations.each do |reservation| %>
-      <li class="p-2", style="list-style-type: none">
-        <div class="d-flex flex-column border border-4 border-start-0 border-end-0">
-          <div class="p-2">
-            <%= link_to edit_reservation_path(reservation), class: "text-decoration-none" do %>
-              <%= reservation.planet.name %>
-              <%= reservation.start_date %>
-              <%= reservation.end_date %>
-              <%= reservation.number_of_guests %>
-            <% end %>
+<div class="home">
+<div class="container pt-4">
+  <h3 class="pt-5 mt-4">Reservations</h3>
+  <div class="home-cards pb-4 ps-3">
+      <% @reservations.each do |reservation| %>
+            <div class="card-home">
+              <div class="card-home-infos">
+                <%= link_to edit_reservation_path(reservation), class: "text-decoration-none" do %>
+                  <h2 style="font-size: 24px;"><%= reservation.planet.name %></h2>
+                  <h2><%= (reservation.end_date - reservation.start_date).to_i %> Nights</h2>
+                  <h2>Guests: <%= reservation.number_of_guests %></h2>
+                <% end %>
+              </div>
+            <div class="p-2">
+              <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-danger text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
+              <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-secondary text-decoration-none" %>
+            </div>
           </div>
-          <div class="p-2">
-            <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
-            <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-warning text-decoration-none" %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+      <% end %>
+  </div>
+</div>
 </div>
