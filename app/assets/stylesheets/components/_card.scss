@@ -28,6 +28,8 @@
   grid-row: 2 / 3
 }
 
+// home cards
+
 .home-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -74,7 +76,11 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative
+  position: relative;
+
+  &:hover {
+    border: 1px solid rgb(247, 247, 247);
+  }
 }
 
 .recommended {
@@ -119,4 +125,132 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+
+
+// planets
+
+.card-planet {
+  overflow: hidden;
+  // background: rgb(0,0,0);
+  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  position: relative;
+  color: rgb(245, 245, 245);
+
+  &:hover {
+    border: 1px solid rgb(250, 250, 250);
+  }
+}
+
+.card-planet > img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-planet h2 {
+  font-size: 20px;
+  color: rgb(247, 247, 247);
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Trispace', sans-serif;
+}
+
+.card-planet-price {
+  color: rgb(177, 166, 180) !important;
+
+  p {
+    font-size: 16px !important;
+  }
+}
+
+.card-planet-text {
+  width: 100%;
+  height: 100%;
+}
+
+.planet-rating {
+  right: 10;
+  top: 20;
+  i {
+    color: rgb(255, 231, 125);
+  }
+}
+
+.card-planet p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin: 0;
+  font-family: $body-font;
+}
+
+.planet-card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.card-planet .card-planet-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  // position: relative;
+}
+
+.card-planet-infos {
+  // position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+  width: 100%;
+}
+
+.planet-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .planet-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .planet-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .planet-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .planet-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .planet-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
