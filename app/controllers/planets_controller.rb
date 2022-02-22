@@ -11,7 +11,7 @@ class PlanetsController < ApplicationController
     # @reservation = current_user.reservations.new
     # authorize @reservation
     @reservation = Reservation.new
-    @reviews_avg = @planet.reviews.average(:rating)
+    @reviews_avg = @planet.reviews.any? ? (@planet.reviews.average(:rating)).round(1) : 0
   end
 
   def new
