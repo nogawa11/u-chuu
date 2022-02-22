@@ -4,14 +4,29 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @planets = policy_scope(Planet)
+    if params[:search].present?
+      @planets = policy_scope(Planet).where("name ILIKE ? OR description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    elsif params[:browse].present?
+      case params[:browse]
+      when "hot"
+        @planets = policy_scope(Planet).where("avg_temp > 100")
+      when "jungle"
+        @planets = policy_scope(Planet).where("description ILIKE ?", "%jungle%")
+      when "cold"
+        @planets = policy_scope(Planet).where("avg_temp < 0")
+      when "dark"
+        @planets = policy_scope(Planet).where("revolution_time > 500")
+      end
+    else
+      @planets = policy_scope(Planet)
+    end
   end
 
   def show
     # @reservation = current_user.reservations.new
     # authorize @reservation
     @reservation = Reservation.new
-    @reviews_avg = @planet.reviews.average(:rating)
+    @reviews_avg = @planet.reviews.any? ? (@planet.reviews.average(:rating)).round(1) : 0
   end
 
   def new
