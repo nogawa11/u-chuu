@@ -34,6 +34,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+
+  h2 {
+  color: black;
+  }
+
+  p {
+    color: rgb(75, 75, 77);
+  }
 }
 
 // Smallest device
@@ -103,6 +111,11 @@
   font-weight: bold;
   margin: 0;
   font-family: 'Trispace', sans-serif;
+}
+
+.card-home h5 {
+  color: rgb(80, 80, 80);
+  font-size: 16px;
 }
 
 .card-home p {
@@ -293,3 +306,52 @@
 //   // align-items: flex-end;
 //   // position: relative;
 // }
+
+.reservations-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+  h2 {
+  color: black;
+  }
+
+  p {
+    color: rgb(75, 75, 77);
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .reservations-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .reservations-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .reservations-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .reservations-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .reservations-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
