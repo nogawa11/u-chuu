@@ -1,19 +1,19 @@
 <div class="home">
 <div class="container pt-4">
-  <h3 class="pt-5 mt-4">Reservations</h3>
-  <div class="home-cards pb-4 ps-3">
+  <h2 class="pt-5 mt-4 trispace mb-2">Reservations</h2>
+  <div class="reservations-cards pb-4 ps-3">
       <% @reservations.each do |reservation| %>
             <div class="card-home">
               <div class="card-home-infos">
                 <%= link_to edit_reservation_path(reservation), class: "text-decoration-none" do %>
-                  <h2 style="font-size: 24px;"><%= reservation.planet.name %></h2>
-                  <h2><%= (reservation.end_date - reservation.start_date).to_i %> Nights</h2>
-                  <h2>Guests: <%= reservation.number_of_guests %></h2>
+                  <h2 class="mb-2" style="font-size: 24px; color: #461dff;"><%= reservation.planet.name %></h2>
+                  <h5><%= (reservation.end_date - reservation.start_date).to_i %> Nights</h5>
+                  <h5>Guests: <%= reservation.number_of_guests %></h5>
                 <% end %>
               </div>
-            <div class="p-2">
-              <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-danger text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
+            <div class="d-flex justify-content-center gap-2 mb-2">
               <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-secondary text-decoration-none" %>
+              <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-danger text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
             </div>
           </div>
       <% end %>
