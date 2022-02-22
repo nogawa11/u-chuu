@@ -39,6 +39,7 @@ gem 'font-awesome-sass'
 gem 'pundit'
 gem 'simple_form'
 gem 'htmlbeautifier'
+gem 'typing', '~> 0.1.3'
 
 group :development, :test do
   gem 'pry-byebug'
