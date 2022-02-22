@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @planets = Planet.all
+    @uchuu = ["U-Chuu", "u-chuu"]
   end
 end

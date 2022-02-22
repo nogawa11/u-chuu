@@ -1,11 +1,17 @@
-<h1>My Planets</h1>
-<ul>
-  <% @planets.each do |planet| %>
-    <li>
-      <%= link_to planet.name, planet_path(planet)%>
-      <%= link_to "edit", edit_planet_path(planet) %>
-      <%= link_to "delete", planet_path(planet), method: :delete, data: { confirm: "Are you sure?"}  %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to "Add a planet", new_planet_path %>
+<div class="container mt-5 pt-5">
+  <div class="d-flex align-items-center gap-3">
+    <h1 class="d-inline-block">My Planets</h1>
+    <%= link_to "Add a planet", new_planet_path, class:"btn btn-primary" %>
+  </div>
+  <ul class="list-group col col-8 m-auto mt-3">
+    <% @planets.each do |planet| %>
+      <li class="list-group-item d-flex align-items-center">
+        <%= link_to planet.name, planet_path(planet), class:"text-decoration-none h5 m-0" %>
+        <div class="d-flex gap-3 ms-auto">
+          <%= link_to "Edit", edit_planet_path(planet), class:"btn btn-info" %>
+          <%= link_to "Delete", planet_path(planet), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-danger"  %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -16,3 +16,42 @@
     font-size: 24px;
   }
 }
+
+.banner {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 350px;
+      border-right: 2px solid rgba(255,255,255,.75);
+      font-size: 80px;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-transform: uppercase;
+      font-family: 'Trispace', sans-serif;
+    }
+  }
+}
+
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}

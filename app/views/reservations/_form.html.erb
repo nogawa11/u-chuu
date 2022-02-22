@@ -9,7 +9,7 @@
       </div>
     </div>
     <%= f.input :number_of_guests %>
-    <% if @planet.reservations.any? && current_user == Planet.find(params[:id]).user %>
+    <% if @planet.reservations.any? && @planet.user == current_user %>
       <%= f.input :status, label: "approved" %>
     <% end %>
     <%= f.submit class:"btn btn-primary w-100 mt-2" %>
