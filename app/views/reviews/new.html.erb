@@ -1,5 +1,10 @@
-<%= simple_form_for [@planet, @review] do |f| %>
-<%= f.input :rating %>
-<%= f.input :content %>
-<%= f.submit %>
-<% end %>
+<div class="container mt-5 pt-5">
+  <%= simple_form_for [@planet, @review] do |f| %>
+    <div class="col col-6 m-auto">
+      <h1>Add a review</h1>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit "Create Review", class:"btn btn-primary m-auto" %>
+    </div>
+  <% end %>
+</div>
