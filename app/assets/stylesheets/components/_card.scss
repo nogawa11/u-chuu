@@ -326,72 +326,72 @@
   opacity: .7;
   margin-bottom: 0;
 
-
-.card-reservation-infos {
-  margin-top: 4px;
-}
-
-.card-product .card-product-infos {
-  padding-left: 12px;
-}
-
-.reservations-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-
-  h2 {
-  color: black;
+  .card-reservation-infos {
+    margin-top: 4px;
   }
 
-  p {
-    color: rgb(75, 75, 77);
+  .card-product .card-product-infos {
+    padding-left: 12px;
   }
-}
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
   .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .reservations-cards {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+
+    h2 {
+    color: black;
+    }
+
+    p {
+      color: rgb(75, 75, 77);
+    }
   }
-}
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr;
+  // Smallest device
+  @media (min-width: 100px) and (max-width: 575px) {
+    .reservations-cards {
+      grid-template-columns: 1fr;
+    }
   }
-}
 
-.reservation-card-buttons {
-  width: 100%;
-}
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+    .reservations-cards {
+      grid-template-columns: 1fr;
+    }
+  }
 
-.stars {
-  color: rgb(255, 231, 125) !important;
-}
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    .reservations-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-.stars-dark {
-  color: rgb(228, 186, 0) !important;
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    .reservations-cards {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    .reservations-cards {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .reservation-card-buttons {
+    width: 100%;
+  }
+
+  .stars {
+    color: rgb(255, 231, 125) !important;
+  }
+
+  .stars-dark {
+    color: rgb(228, 186, 0) !important;
+  }
 }
