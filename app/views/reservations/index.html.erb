@@ -1,7 +1,7 @@
 <div class="home">
 <div class="container pt-4">
   <h2 class="pt-5 mt-4 trispace mb-2">Reservations</h2>
-  <div class="reservations-cards pb-4 ps-3">
+  <div class="reservations-cards pb-4">
       <% @reservations.each do |reservation| %>
             <div class="card-home">
               <div class="card-home-infos", style="padding-bottom: 0;">
@@ -24,7 +24,7 @@
             <div class="d-flex justify-content-center ms-3 me-3 mb-3 gap-2">
               <%= link_to "View", reservation_path(reservation), class: "btn btn-outline-warning reservation-card-buttons" %>
               <%= link_to "Edit", edit_reservation_path(reservation), class: "btn btn-outline-info reservation-card-buttons" %>
-              <%= link_to "Delete", reservation_path(reservation), class: "btn btn-outline-danger reservation-card-buttons", method: :delete, data: { confirm: "Are you sure?"} %>
+              <%= link_to "Cancel", reservation_path(reservation), class: "btn btn-outline-danger reservation-card-buttons", method: :delete, data: { confirm: "Are you sure?"} %>
             </div>
           </div>
       <% end %>
