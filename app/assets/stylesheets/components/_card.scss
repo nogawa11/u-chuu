@@ -395,3 +395,41 @@
 .stars-dark {
   color: rgb(228, 186, 0) !important;
 }
+
+// reservation
+
+.card-reservation-home {
+  overflow: hidden;
+  background: rgb(44, 44, 46);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  position: relative;
+}
+
+.card-reservation-home h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Trispace', sans-serif;
+  color:#7758ff;
+}
+
+.card-reservation-home h5 {
+  color: rgb(212, 212, 212);
+  font-size: 16px;
+}
+
+.card-reservation-home p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  color:rgb(197, 197, 197);
+}
+
+.card-reservation-home .card-reservation-home-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}

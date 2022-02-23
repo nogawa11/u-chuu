@@ -3,9 +3,9 @@
   <h2 class="pt-5 mt-4 trispace mb-2">Reservations</h2>
   <div class="reservations-cards pb-4">
       <% @reservations.each do |reservation| %>
-            <div class="card-home">
+            <div class="card-reservation-home">
               <div class="ps-3 pe-3 pt-3">
-                <h2 class="mb-1" style="font-size: 24px; color: #461dff;"><%= reservation.planet.name %></h2>
+                <h2 class="mb-1" style="font-size: 24px;"><%= reservation.planet.name %></h2>
                 <p class="mb-2"><%= reservation.start_date %> - <%= reservation.end_date %></p>
                 <div class="d-flex">
                   <h5><%= pluralize((reservation.end_date - reservation.start_date).to_i, 'night')%> <i class="fas fa-moon me-2 ms-1"></i></h5>
@@ -13,7 +13,7 @@
                 </div>
                 <h5>Reservation status:
                   <% if reservation.status? %>
-                    <span class="ms-1" style="color: green;">Approved <i class="fas fa-check"></i></span>
+                    <span class="ms-1" style="color: rgb(90, 216, 90);">Approved <i class="fas fa-check"></i></span>
                   <% else %>
                     <span class="ms-1" style="color: gray;">Pending <i class="fas fa-clock"></i></span>
                   <% end %>
