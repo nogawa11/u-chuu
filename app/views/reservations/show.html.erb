@@ -1,10 +1,10 @@
-<div class="reservation" style="padding-top:80px">
-  <div class="container" style="padding:8px">
-    <h1 class="main-heading mt-10">Reservation Details</h1>
+<div class="reservation bg-black" style="padding-top: 88px">
+  <div class="container p-5">
+    <h1 class="main-heading mt-10 white">Reservation Details</h1>
     <div>
       <div class="row">
         <div class="col-12 col-lg-6">
-          <div class="details">
+          <div class="details white">
             <p><strong>Dates: </strong></p>
             <p><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
             <p><strong>Guests: </strong></p>
@@ -29,19 +29,18 @@
                   </div>
                 </div>
               </div>
-              <div class="price-details">
+              <div class="price-details mt-4 pt-4 border-top">
                 <h1>Price details</h1>
               </div>
-              <div class=“price”>
-                $<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights -
+              <div class="d-flex align-items-center justify-content-between">
+                <span>$<%= @reservation.planet.price_per_night %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights</span>
                 $<%= @reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i %>
               </div>
-              <div class=“price”>
-                Service fee -
-                $999
+              <div class="d-flex align-items-center justify-content-between">
+                <span>Service fee</span>$999
               </div>
-              <div class=“price”>
-                <strong>Total - </strong>
+              <div class="d-flex align-items-center justify-content-between border-top mt-2 pt-2">
+                <span><strong>Total</strong></span>
                 $<%= (@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999 %>
               </div>
             </div>

@@ -140,7 +140,7 @@
 }
 
 // reservations show page
-=======
+// =======
 // planets
 
 .card-planet {
@@ -267,13 +267,14 @@
   }
 }
 
-
+// reservation show page
 .card-reservation {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: gray;
   border-radius: 4px;
+  color: black;
 }
 
 .card-details > img {
@@ -334,19 +335,6 @@
 .card-reservation-infos {
   margin-bottom: 24px;
 }
-
-// move this code
-.price-details {
-  border-top: 1px solid rgb(180, 174, 174);
-  margin-top: 16px;
-  padding-top: 24px;
-}
-
-// .price {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
 
 .reservations-cards {
   display: grid;
