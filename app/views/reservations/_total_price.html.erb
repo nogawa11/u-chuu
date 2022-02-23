@@ -1,4 +1,4 @@
-<div class="d-flex mt-5 align-items-center justify-content-between">
+<div class="d-flex mt-3 align-items-center justify-content-between">
   <span>
     <% if @reservation.planet %>
       <%= number_to_currency(@reservation.planet.price_per_night) %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights
