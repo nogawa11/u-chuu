@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center justify-content-between">
+  <span><%= number_to_currency(@reservation.planet.price_per_night) %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights</span>
+  <%= number_to_currency(@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) %>
+</div>
+<div class="d-flex align-items-center justify-content-between">
+  <span>Service fee</span><%= number_to_currency(999) %>
+</div>
+<div class="d-flex align-items-center justify-content-between border-top mt-2 pt-2">
+  <span><strong>Total</strong></span>
+  <%= number_to_currency((@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999) %>
+</div>
