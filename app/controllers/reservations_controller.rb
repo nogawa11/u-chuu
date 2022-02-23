@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reservations = policy_scope(Reservation).where(user: current_user)
+    @reservations = policy_scope(Reservation).where(user: current_user).order(start_date: :asc)
   end
 
   def new
