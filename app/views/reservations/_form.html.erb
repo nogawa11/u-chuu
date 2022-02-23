@@ -15,6 +15,8 @@
       </div>
     </div>
     <%= f.input :number_of_guests, input_html: {
+      min: '1',
+      max: @planet.maximum_guests,
       "data-action": "input->form#updateNumberOfGuests",
       "data-form-target": "numberOfGuestsInput"
     } %>

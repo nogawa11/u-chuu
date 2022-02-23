@@ -1,6 +1,9 @@
 <div class="reservation bg-black" style="padding-top: 88px">
   <div class="container p-5">
-    <h1 class="main-heading mt-10 white">Reservation Details</h1>
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="main-heading mt-10 white trispace">Reservation Details</h1>
+      <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
+    </div>
     <div>
       <div class="row">
         <div class="col-12 col-lg-6">
@@ -20,17 +23,17 @@
                 <% else %>
                   <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
                 <% end %>
-                <div class="card-product-infos">
-                  <div class="card-reservation-infos">
-                    <h2><%= @reservation.planet.name %></h2>
-                    <p><%= @reservation.planet.description %></p>
-                    <span><%= @reviews_avg %><i class="fas fa-star warning"></i> - </span>
-                    <span><%= @reservation.planet.reviews.count %> review(s)</span>
+              <div class="card-product-infos">
+                <div class="card-reservation-infos">
+                  <h5><strong><%= @reservation.planet.name %></strong></h5>
+                  <p class="mb-1"><%= @reservation.planet.description.split(" ").first(10).join(" ") %>...</p>
+                  <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars-dark"></i> </span>
+                  <span>(<%= pluralize(@reservation.planet.reviews.count, 'review') %>)</span>
                   </div>
                 </div>
               </div>
               <div class="price-details mt-4 pt-4 border-top">
-                <h1>Price details</h1>
+                <h4>Price details</h4>
               </div>
               <%= render "total_price" %>
             </div>

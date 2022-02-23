@@ -9,7 +9,7 @@
       </div>
     </div>
     <%= f.input :number_of_guests %>
-    <% if policy(@reservation).edit? %>
+    <% if @reservation.planet.user == current_user %>
       <%= f.input :status, label: "Approved" %>
     <% end %>
     <%= f.submit class:"btn btn-primary w-100 mt-2" %>
