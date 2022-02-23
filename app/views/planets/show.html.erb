@@ -1,38 +1,13 @@
-<div class="show-banner">
-  <% if @planet.photos.first.present? %>
-    <%= cl_image_tag(@planet.photos.first.key) %>
-  <% else %>
-    <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
-  <% end %>
-</div>
+
 <div class="container mt-3 pt-3 mb-5 planet-show">
   <h1 class="trispace"><%= @planet.name %></h1>
   <span><%= @reviews_avg %><i class="fas fa-star warning ms-1"></i></span>
   <span>(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
   <div>
+    <%= render "planet_images" %>
     <div class="row mt-3">
       <div class="col col-6 pe-5">
-        <div class="border-top border-bottom pb-1 pt-3">
-          <div class="row">
-            <p class="col col-6">
-              <span class="gray">Rotation time:</span> <%= @planet.rotation_time %> days
-            </p>
-            <p class="col col-6">
-              <span class="gray">Revolution time:</span> <%= @planet.revolution_time %> days
-            </p>
-          </div>
-          <div class="row">
-            <p class="col col-6">
-              <span class="gray">Radius:</span>
-              <%= number_with_delimiter(@planet.radius, :delimiter => ',') %> km
-            </p>
-            <p class="col col-6">
-              <span class="gray">Average temperature:</span> <%= @planet.avg_temp %>°C
-            </p>
-          </div>
-          <p><span class="gray">Location: </span><%= @planet.location %></p>
-        </div>
-        <p class="pe-5 mt-3"><%= @planet.description %></p>
+        <%= render "planet_info" %>
       </div>
       <%= render "reservations/booking_card" %>
     </div>
