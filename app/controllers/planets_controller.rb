@@ -5,20 +5,20 @@ class PlanetsController < ApplicationController
 
   def index
     if params[:search].present?
-      @planets = policy_scope(Planet).where("name ILIKE ? OR description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @planets = policy_scope(Planet).where("name ILIKE ? OR description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").order(name: :asc)
     elsif params[:browse].present?
       case params[:browse]
       when "hot"
-        @planets = policy_scope(Planet).where("avg_temp > 100")
+        @planets = policy_scope(Planet).where("avg_temp > 100").order(name: :asc)
       when "jungle"
-        @planets = policy_scope(Planet).where("description ILIKE ?", "%jungle%")
+        @planets = policy_scope(Planet).where("description ILIKE ?", "%jungle%").order(name: :asc)
       when "cold"
-        @planets = policy_scope(Planet).where("avg_temp < 0")
+        @planets = policy_scope(Planet).where("avg_temp < 0").order(name: :asc)
       when "dark"
-        @planets = policy_scope(Planet).where("revolution_time > 500")
+        @planets = policy_scope(Planet).where("revolution_time > 500").order(name: :asc)
       end
     else
-      @planets = policy_scope(Planet)
+      @planets = policy_scope(Planet).order(name: :asc)
     end
   end
 
