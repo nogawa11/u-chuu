@@ -1,17 +1,17 @@
-<div class="reservation bg-black" style="padding-top: 88px">
-  <div class="container p-5">
+<div class="reservation bg-black m-5 p-5">
+  <div class="container">
     <div class="d-flex justify-content-between align-items-center">
-      <h1 class="main-heading mt-10 white trispace">Reservation Details</h1>
+      <h1 class="main-heading mt-10 offwhite trispace">Reservation Details</h1>
       <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
     </div>
     <div>
       <div class="row">
         <div class="col-12 col-lg-6">
           <div class="details white">
-            <p><strong>Dates: </strong></p>
-            <p><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
-            <p><strong>Guests: </strong></p>
-            <p><%= @reservation.number_of_guests %> guests</p>
+            <p class="gray"><strong>Dates: </strong></p>
+            <p class="offwhite"><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
+            <p class="gray"><strong>Guests: </strong></p>
+            <p class="offwhite"><%= @reservation.number_of_guests %> guests</p>
           </div>
         </div>
         <div class="col-12 col-lg-6">
@@ -27,7 +27,7 @@
                 <div class="card-reservation-infos">
                   <h5><strong><%= @reservation.planet.name %></strong></h5>
                   <p class="mb-1"><%= @reservation.planet.description.split(" ").first(10).join(" ") %>...</p>
-                  <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars-dark"></i> </span>
+                  <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i> </span>
                   <span>(<%= pluralize(@reservation.planet.reviews.count, 'review') %>)</span>
                   </div>
                 </div>

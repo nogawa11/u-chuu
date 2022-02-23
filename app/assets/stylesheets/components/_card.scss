@@ -276,11 +276,11 @@
 
 .card-reservation {
   overflow: hidden;
-  background: white;
+  background-color: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: gray;
   border-radius: 4px;
-  color: black;
+  color: rgb(235, 235, 235);
 }
 
 .card-details > img {
@@ -306,7 +306,7 @@
 
 .card-product {
   overflow: hidden;
-  background: white;
+  background: rgb(38, 38, 43);
   display: flex;
   align-items: center;
   margin-bottom: 16px;
@@ -330,6 +330,7 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
+  color: rgb(187, 187, 187);
 }
 
 .card-reservation-infos {
