@@ -6,7 +6,7 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "typing"
+// import "typing"
 import "channels"
 
 Rails.start()
