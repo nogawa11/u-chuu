@@ -1,6 +1,6 @@
 
-<div class="container mt-3 pt-3 mb-5 planet-show">
-  <h1 class="trispace"><%= @planet.name %></h1>
+<div class="container pt-3 mb-5 planet-show mt-5">
+  <h1 class="trispace mt-5"><%= @planet.name %></h1>
   <span><%= @reviews_avg %><i class="fas fa-star warning ms-1"></i></span>
   <span>(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
   <div>
