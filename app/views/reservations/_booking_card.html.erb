@@ -1,6 +1,6 @@
 <div class="col col-6 card shadow p-4 planet-booking" style="height: 400px;">
   <h3 class="font-weight-bold"><%= number_to_currency(@planet.price_per_night, precision: 0) %> per night</h3>
-  <span><%= @reviews_avg %><i class="fas fa-star warning ms-1"></i> (<%= pluralize(@planet.reviews.count, 'review') %>)</span>
+  <span class="planet-rating"><%= @reviews_avg %><i class="fas fa-star ms-1"></i> (<%= pluralize(@planet.reviews.count, 'review') %>)</span>
   <div class="col card p-4 mt-3 shadow">
     <%= render "reservations/form" %>
   </div>
