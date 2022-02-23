@@ -5,7 +5,7 @@
       <span><%= @reviews_avg %><i class="fas fa-star warning ms-1"></i></span>
       <span>(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
     </div>
-    <%= link_to "<i class='fas fa-undo'></i> Back to Planets".html_safe, planets_path(browse: params[:format]), class: "add-review-button" %>
+    <%= link_to "<i class='fas fa-undo'></i> Back to planets".html_safe, planets_path(browse: params[:format]), class: "add-review-button" %>
   </div>
   <div>
     <%= render "planet_images" %>
