@@ -14,7 +14,7 @@
         <div class="col-12 col-lg-6">
           <div class="card-reservation">
             <div class="card-details m-5">
-              <div class="card-product">
+              <div class="card-product d-flex gap-4">
                 <% if @reservation.planet.photos.first.present? %>
                   <%= cl_image_tag(@reservation.planet.photos.first.key) %>
                 <% else %>
@@ -32,17 +32,7 @@
               <div class="price-details mt-4 pt-4 border-top">
                 <h1>Price details</h1>
               </div>
-              <div class="d-flex align-items-center justify-content-between">
-                <span><%= number_to_currency(@reservation.planet.price_per_night) %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights</span>
-                <%= number_to_currency(@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) %>
-              </div>
-              <div class="d-flex align-items-center justify-content-between">
-                <span>Service fee</span><%= number_to_currency(999) %>
-              </div>
-              <div class="d-flex align-items-center justify-content-between border-top mt-2 pt-2">
-                <span><strong>Total</strong></span>
-                <%= number_to_currency((@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999) %>
-              </div>
+              <%= render "total_price" %>
             </div>
           </div>
         </div>
