@@ -1,8 +1,10 @@
 <div class="planet-images mt-3 mb-4">
-  <% Dir.each_child("app/assets/images/#{Planet.find(params[:id]).name.downcase}").each do |image| %>
-
-    <%= image_tag "#{Planet.find(params[:id]).name.downcase}/#{image}" %>
-
+  <% if @planet.photos.first.present? %>
+    <% @planet.photos.each do |image| %>
+      <%= cl_image_tag(image.key) %>
+    <% end %>
+  <% else %>
+    <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
   <% end %>
 
 </div>
