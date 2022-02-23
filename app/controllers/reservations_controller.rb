@@ -30,14 +30,18 @@ class ReservationsController < ApplicationController
 
   def show
     authorize @reservation
+    @planet = @reservation.planet
+    @reviews_avg = @planet.reviews.any? ? (@planet.reviews.average(:rating)).round(1) : 0
   end
 
   def edit
   end
 
   def update
-    if @reservation.update(reservation_params)
+    if @reservation.update(reservation_params) && @reservation.user == current_user
       redirect_to reservations_path
+    elsif @reservation.update(reservation_params) && @reservation.planet.user == current_user
+      redirect_to owner_reservations_path
     else
       render :edit
     end
