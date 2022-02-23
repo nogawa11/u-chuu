@@ -1,4 +1,4 @@
-<div class="col col-6 m-auto">
+<div class="col col-6 m-auto mt-2  style="height: 250px">
   <%= simple_form_for @planet do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -26,7 +26,8 @@
         <%= f.input :avg_temp %>
       </div>
     </div>
+    <%= f.input :location %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Create planet", class:"btn btn-lg btn-primary mt-3" %>
+    <%= f.submit class:"btn btn-lg btn-primary mt-2", style: "width: 100%" %>
   <% end %>
 </div>
