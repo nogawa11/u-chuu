@@ -1,19 +1,28 @@
 <div class="home">
 <div class="container pt-4">
   <h2 class="pt-5 mt-4 trispace mb-2">Reservations</h2>
-  <div class="reservations-cards pb-4 ps-3">
+  <div class="reservations-cards pb-4">
       <% @reservations.each do |reservation| %>
             <div class="card-home">
-              <div class="card-home-infos">
-                <%= link_to edit_reservation_path(reservation), class: "text-decoration-none" do %>
-                  <h2 class="mb-2" style="font-size: 24px; color: #461dff;"><%= reservation.planet.name %></h2>
-                  <h5><%= (reservation.end_date - reservation.start_date).to_i %> Nights</h5>
-                  <h5>Guests: <%= reservation.number_of_guests %></h5>
-                <% end %>
+              <div class="ps-3 pe-3 pt-3">
+                <h2 class="mb-1" style="font-size: 24px; color: #461dff;"><%= reservation.planet.name %></h2>
+                <p class="mb-2"><%= reservation.start_date %> - <%= reservation.end_date %></p>
+                <div class="d-flex">
+                  <h5><%= pluralize((reservation.end_date - reservation.start_date).to_i, 'night')%> <i class="fas fa-moon me-2 ms-1"></i></h5>
+                  <h5><%= pluralize(reservation.number_of_guests, 'guest')%> <i class="fas fa-users ms-1"></i></h5>
+                </div>
+                <h5>Reservation status:
+                  <% if reservation.status? %>
+                    <span class="ms-1" style="color: green;">Approved <i class="fas fa-check"></i></span>
+                  <% else %>
+                    <span class="ms-1" style="color: gray;">Pending <i class="fas fa-clock"></i></span>
+                  <% end %>
+                </h5>
               </div>
-            <div class="d-flex justify-content-center gap-2 mb-2">
-              <%= link_to "see details", reservation_path(reservation), class: "btn btn-outline-secondary text-decoration-none" %>
-              <%= link_to "delete", reservation_path(reservation), class: "btn btn-outline-danger text-decoration-none", method: :delete, data: { confirm: "Are you sure?"} %>
+            <div class="d-flex justify-content-center ms-3 me-3 mb-3 gap-2">
+              <%= link_to "View", reservation_path(reservation), class: "btn btn-outline-warning reservation-card-buttons" %>
+              <%= link_to "Edit", edit_reservation_path(reservation), class: "btn btn-outline-info reservation-card-buttons" %>
+              <%= link_to "Cancel", reservation_path(reservation), class: "btn btn-outline-danger reservation-card-buttons", method: :delete, data: { confirm: "Are you sure?"} %>
             </div>
           </div>
       <% end %>

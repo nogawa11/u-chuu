@@ -2,10 +2,10 @@
   <h1 class="trispace mt-5"><%= @planet.name %></h1>
   <div class="d-flex justify-content-between">
     <div>
-      <span class="planet-rating"><%= @reviews_avg %><i class="fas fa-star ms-1"></i></span>
+      <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i></span>
       <span>(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
     </div>
-    <%= link_to "<i class='fas fa-undo'></i> Back to Planets".html_safe, planets_path(browse: params[:format]), class: "add-review-button" %>
+    <%= link_to "<i class='fas fa-undo'></i> Back to planets".html_safe, planets_path(browse: params[:format]), class: "add-review-button" %>
   </div>
   <div>
     <%= render "planet_images" %>
@@ -26,10 +26,10 @@
         <li class="list-group-item">
           <p class="white trispace" style="margin: 0"><strong><%= review.user.name %></strong></p>
           <% (review.rating).times do %>
-            <i class="fas fa-star" style="color: rgb(255, 231, 125);"></i>
+            <i class="fas fa-star warning stars"></i>
           <% end %>
           <% (5 - review.rating).times do %>
-            <i class="far fa-star" style="color: rgb(255, 231, 125);"></i>
+            <i class="far fa-star stars"></i>
           <% end %>
           <p style="margin: 0"><%= review.content %></p>
         </li>

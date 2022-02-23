@@ -290,7 +290,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .card-reservation p {
@@ -316,7 +316,7 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
@@ -326,11 +326,11 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding-left: 12px;
 }
 
 .card-reservation-infos {
@@ -338,7 +338,7 @@
 
 .reservations-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 
   h2 {
@@ -374,13 +374,25 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.reservation-card-buttons {
+  width: 100%;
+}
+
+.stars {
+  color: rgb(255, 231, 125) !important;
+}
+
+.stars-dark {
+  color: rgb(228, 186, 0) !important;
 }
