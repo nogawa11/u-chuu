@@ -5,7 +5,7 @@
   </div>
   <div class="planet-cards mt-3 mb-5">
     <% @planets.each do |planet| %>
-      <div class="card-planet" style="border: 1px solid #FFFFFF">
+      <div class="card-planet">
         <% if planet.photos.first.present? %>
           <%= cl_image_tag(planet.photos.first.key) %>
         <% else %>
