@@ -16,7 +16,6 @@ puts "Creating New Users..."
   planet = Planet.new(
     name: Faker::Space.planet,
     location: Faker::TvShows::StarTrek.location,
-    # photos_url: "https://picsum.photos/200/300",
     price_per_night: rand(1..999_999),
     maximum_guests: rand(1..999_999_999),
     description: Faker::Lorem.paragraphs.join("\n"),
