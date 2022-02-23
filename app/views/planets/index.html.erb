@@ -1,8 +1,29 @@
-<div class="container mt-5 pt-3">
-  <h1 class="main-heading mt-5">All planets(<%= @planets.length %>)</h1>
-  <div class="home-grid mt-3">
-    <% @planets.each do |planet| %>
-      <%= render "shared/card", planet: planet %>
-    <% end %>
+<div class="index-background">
+  <div class="container pt-5 pb-5">
+    <h2 class="main-heading mt-5 trispace"><i class="fas fa-globe-asia"></i> Planets (<%= @planets.length %>)</h2>
+    <div class="planet-cards mt-3">
+      <% @planets.each do |planet| %>
+        <div class="card-planet">
+          <% if planet.photos.first.present? %>
+            <%= cl_image_tag(planet.photos.first.key) %>
+          <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+           <% end %>
+          <div class="card-planet-infos">
+            <div class="card-planet-text">
+              <div class="d-flex align-items-end">
+                <h2 class="me-2"><%= planet.name %></h2>
+                <p class= "d-flex justify-content-end align-items-center planet-rating"><span class="me-1"><%= planet.reviews.present? ? "#{(planet.reviews.reduce(0) { |sum, curr| curr.rating + sum } / planet.reviews.size).to_f.round(1) }" : "N/A" %></span> <i class="fas fa-star me-2"></i> (<%= planet.reviews.count %> reviews)</p>
+              </div>
+              <p class="mt-2"><%= planet.description.chars.first(75).join ... %></p>
+              <div class="d-flex justify-content-end card-planet-price mt-2">
+                <p><strong><%= number_to_currency(planet.price_per_night, precision: 0) %></strong> per night</p>
+              </div>
+            </div>
+          </div>
+          <%= link_to "", planet_path(planet), class: "planet-card-link" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
