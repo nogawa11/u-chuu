@@ -5,6 +5,7 @@
 @import "button";
 @import "navbar";
 @import "card";
+@import "form";
 
 body {
   background-color: black;
@@ -26,4 +27,13 @@ body {
   .white {
     color: rgb(250, 250, 250);
   }
+}
+
+
+.light-gray {
+  color: rgb(153, 153, 153);
+}
+
+.offwhite {
+  color:rgb(209, 209, 209);
 }

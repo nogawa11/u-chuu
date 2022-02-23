@@ -1,11 +1,11 @@
 <div class="container mt-5 pt-5">
   <div class="d-flex align-items-center gap-3 justify-content-between">
-    <h1 class="d-inline-block trispace">My Planets</h1>
+    <h1 class="d-inline-block trispace offwhite">My Planets</h1>
     <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
   </div>
-  <div class="planet-cards mt-3 mb-5">
+  <div class="planet-cards mt-2 mb-5">
     <% @planets.each do |planet| %>
-      <div class="card-planet">
+      <div class="card-planet-owner">
         <% if planet.photos.first.present? %>
           <%= cl_image_tag(planet.photos.first.key) %>
         <% else %>

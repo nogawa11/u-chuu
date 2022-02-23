@@ -1,4 +1,4 @@
-<div class="col col-6 m-auto mt-2  style="height: 250px">
+<div class="col col-6 m-auto mt-2 card p-3">
   <%= simple_form_for @planet do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -28,6 +28,6 @@
     </div>
     <%= f.input :location %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit class:"btn btn-lg btn-primary mt-2", style: "width: 100%" %>
+    <%= f.submit class:"btn btn btn-primary mt-2 mb-1", style: "width: 100%" %>
   <% end %>
 </div>

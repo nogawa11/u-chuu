@@ -1,9 +1,9 @@
 <div class="container pt-3 mb-5 planet-show mt-5">
-  <h1 class="trispace mt-5"><%= @planet.name %></h1>
+  <h1 class="trispace mt-5 offwhite"><%= @planet.name %></h1>
   <div class="d-flex justify-content-between">
     <div>
-      <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i></span>
-      <span>(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
+      <span class="gray"><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i></span>
+      <span class="gray">(<%= pluralize(@planet.reviews.count, 'review') %>)</span>
     </div>
     <%= link_to "<i class='fas fa-undo'></i> Back to planets".html_safe, planets_path(browse: params[:format]), class: "add-review-button" %>
   </div>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="d-flex gap-3 mt-5 pb-3 col col-6 align-items-end border-bottom justify-content-between">
-    <h3 class = "trispace" style="margin: 0">Reviews</h3>
+    <h3 class= "trispace offwhite" style="margin: 0">Reviews</h3>
     <%= link_to "<i class='fas fa-plus'></i> Add a review".html_safe, new_planet_review_path(@planet), class:"add-review-button" %>
   </div>
   <% if @planet.reviews.first.present? %>
@@ -31,7 +31,7 @@
           <% (5 - review.rating).times do %>
             <i class="far fa-star stars"></i>
           <% end %>
-          <p style="margin: 0"><%= review.content %></p>
+          <p style="margin: 0" class="light-gray"><%= review.content %></p>
         </li>
       <% end %>
     </ul>

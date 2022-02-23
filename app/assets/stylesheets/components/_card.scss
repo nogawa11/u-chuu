@@ -81,7 +81,9 @@
 
 .card-home {
   overflow: hidden;
-  background: white;
+  // background: rgb(238, 238, 238);
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   position: relative;
@@ -111,6 +113,7 @@
   font-weight: bold;
   margin: 0;
   font-family: 'Trispace', sans-serif;
+  color: rgb(230, 230, 230);
 }
 
 .card-home h5 {
@@ -122,6 +125,7 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  color: rgb(196, 196, 196);
 }
 
 .card-home .card-home-infos {
@@ -199,6 +203,7 @@
   opacity: 0.9;
   margin: 0;
   font-family: $body-font;
+  color: rgb(163, 163, 163);
 }
 
 .planet-card-link {
@@ -400,7 +405,7 @@
 
 .card-reservation-home {
   overflow: hidden;
-  background: rgb(44, 44, 46);
+  background: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   position: relative;
@@ -411,11 +416,11 @@
   font-weight: bold;
   margin: 0;
   font-family: 'Trispace', sans-serif;
-  color:#7758ff;
+  color:#4017f7;
 }
 
 .card-reservation-home h5 {
-  color: rgb(212, 212, 212);
+  color: rgb(194, 194, 194);
   font-size: 16px;
 }
 
@@ -423,7 +428,8 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
-  color:rgb(197, 197, 197);
+  color:rgb(150, 150, 150);
+  // color: rgb(21, 156, 21);
 }
 
 .card-reservation-home .card-reservation-home-infos {
@@ -432,4 +438,47 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+}
+
+// card planet owner
+
+.card-planet-owner {
+  overflow: hidden;
+  // background: rgb(0,0,0);
+  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  position: relative;
+  color: rgb(245, 245, 245);
+}
+
+.card-planet-owner > img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-planet-owner h2 {
+  font-size: 20px;
+  color: rgb(247, 247, 247);
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Trispace', sans-serif;
+}
+
+.card-planet-owner p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin: 0;
+  font-family: $body-font;
+}
+
+.card-planet-owner .card-planet-owner-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  // position: relative;
 }

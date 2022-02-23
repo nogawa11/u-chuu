@@ -1,6 +1,6 @@
 <div class="home">
 <div class="container pt-4">
-  <h2 class="pt-5 mt-4 trispace mb-2">Reservations</h2>
+  <h1 class="pt-5 mt-4 trispace mb-3 offwhite"> My Reservations</h1>
   <div class="reservations-cards pb-4">
       <% @reservations.each do |reservation| %>
             <div class="card-reservation-home">
@@ -13,7 +13,7 @@
                 </div>
                 <h5>Reservation status:
                   <% if reservation.status? %>
-                    <span class="ms-1" style="color: rgb(90, 216, 90);">Approved <i class="fas fa-check"></i></span>
+                    <span class="ms-1" style="color: rgb(21, 156, 21);">Approved <i class="fas fa-check"></i></span>
                   <% else %>
                     <span class="ms-1" style="color: gray;">Pending <i class="fas fa-clock"></i></span>
                   <% end %>
