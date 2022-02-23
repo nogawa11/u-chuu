@@ -1,9 +1,12 @@
 <div class="d-flex mt-5 align-items-center justify-content-between">
-  <span data-form-target="price-per-night">
+  <span>
     <% if @reservation.planet %>
       <%= number_to_currency(@reservation.planet.price_per_night) %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights
     <% else %>
-      <%= number_to_currency(@planet.price_per_night) %> x 1 nights
+      <span data-form-target="pricePerNight">
+        <%= number_to_currency(@planet.price_per_night) %>
+      </span>
+      x <span data-form-target="nights">1</span> nights
     <% end %>
   </span>
   <span data-form-target="price">
