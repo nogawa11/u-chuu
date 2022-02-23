@@ -301,7 +301,6 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
   background: white;
   display: flex;
   align-items: center;
@@ -326,6 +325,9 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
+
+
+.card-reservation-infos {
   margin-top: 4px;
 }
 

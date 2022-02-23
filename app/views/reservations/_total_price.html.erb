@@ -1,0 +1,32 @@
+<div class="d-flex mt-5 align-items-center justify-content-between">
+  <span>
+    <% if @reservation.planet %>
+      <%= number_to_currency(@reservation.planet.price_per_night) %> x <%= (@reservation.end_date - @reservation.start_date).to_i %> nights
+    <% else %>
+      <span data-form-target="pricePerNight">
+        <%= number_to_currency(@planet.price_per_night) %>
+      </span>
+      x <span data-form-target="nights">1</span> nights
+    <% end %>
+  </span>
+  <span data-form-target="price">
+    <% if @reservation.planet %>
+      <%= number_to_currency(@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) %>
+    <% else %>
+      <%= number_to_currency(@planet.price_per_night) %>
+    <% end %>
+  </span>
+</div>
+<div class="d-flex align-items-center justify-content-between">
+  <span>Service fee</span><%= number_to_currency(999) %>
+</div>
+<div class="d-flex align-items-center justify-content-between border-top mt-2 pt-2">
+  <span><strong>Total</strong></span>
+  <span data-form-target="total">
+    <% if @reservation.planet %>
+      <%= number_to_currency((@reservation.planet.price_per_night * (@reservation.end_date - @reservation.start_date).to_i) + 999) %>
+    <% else %>
+      <%= number_to_currency(@planet.price_per_night + 999) %>
+    <% end %>
+  </span>
+</div>

@@ -1,14 +1,26 @@
-<div class="row">
+<div class="row" data-controller="form">
   <%= simple_form_for [@planet, @reservation] do |f| %>
     <div class="row">
       <div class="col col-6">
-        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :start_date, as: :date, html5: true, input_html: {
+          "data-action": "input->form#updateStartDate",
+          "data-form-target": "startDateInput"
+        } %>
       </div>
       <div class="col col-6">
-        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true, input_html: {
+          "data-action": "input->form#updateEndDate",
+          "data-form-target": "endDateInput"
+        }%>
       </div>
     </div>
-    <%= f.input :number_of_guests, input_html: { min: '1', max: @planet.maximum_guests } %>
+    <%= f.input :number_of_guests, input_html: {
+      min: '1',
+      max: @planet.maximum_guests,
+      "data-action": "input->form#updateNumberOfGuests",
+      "data-form-target": "numberOfGuestsInput"
+    } %>
     <%= f.submit class:"btn btn-primary w-100 mt-2" %>
   <% end %>
+  <%= render "reservations/total_price" %>
 </div>
