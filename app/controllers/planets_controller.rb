@@ -5,7 +5,7 @@ class PlanetsController < ApplicationController
 
   def index
     if params[:search].present?
-      @planets = policy_scope(Planet).where("name ILIKE ? OR description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").order(name: :asc)
+      @planets = policy_scope(Planet).where("name ILIKE ? OR description ILIKE ? OR location ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").order(name: :asc)
     elsif params[:browse].present?
       case params[:browse]
       when "hot"

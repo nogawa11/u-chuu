@@ -6,14 +6,14 @@ User.destroy_all
 
 puts "Creating New Users..."
 
-10.times do
-  user = User.new(
-    name: Faker::Esport.player,
-    email: Faker::Internet.email,
-    password: "password"
-  )
-  user.save!
-  planet = Planet.new(
+user = User.new(
+  name: "lewagon",
+  email: "lewagon@gmail.com",
+  password: "123123"
+)
+user.save!
+
+planet = Planet.new(
     name: Faker::Space.planet,
     location: Faker::TvShows::StarTrek.location,
     price_per_night: rand(1..999_999),
