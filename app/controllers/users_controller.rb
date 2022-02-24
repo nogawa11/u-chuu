@@ -4,16 +4,20 @@ class UsersController < ApplicationController
     authorize @user
     @as_host_reviews = @user.user_reviews.where(review_type: 0)
     @as_guest_reviews = @user.user_reviews.where(review_type: 1)
-    host_sum = []
-    guest_sum = []
-    @as_host_reviews.each do |host_review|
-      host_sum << host_review.rating
+    if @as_host_reviews.first.present?
+      host_sum = []
+      @as_host_reviews.each do |host_review|
+        host_sum << host_review.rating
+      end
+      @host_rating = (host_sum.sum / host_sum.count).to_f.round(1)
     end
-    @as_guest_reviews.each do |guest_review|
-      guest_sum << guest_review.rating
+    if @as_guest_reviews.first.present?
+      guest_sum = []
+      @as_guest_reviews.each do |guest_review|
+        guest_sum << guest_review.rating
+        @guest_rating = (guest_sum.sum / guest_sum.count).to_f.round(1)
+      end
     end
-    @host_rating = (host_sum.sum / host_sum.count).to_f.round(1)
-    @guest_rating = (guest_sum.sum / guest_sum.count).to_f.round(1)
   end
 
   def edit
