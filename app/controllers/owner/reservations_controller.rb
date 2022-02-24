@@ -2,6 +2,9 @@ class Owner::ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @planets = policy_scope(Planet).where(user: current_user).order(name: :asc)
+    @approved_reservations = policy_scope(Reservation).where(reservation_status: 'approved').order(start_date: :asc)
+    @pending_reservations = policy_scope(Reservation).where(reservation_status: 'pending').order(start_date: :asc)
+    @declined_reservations = policy_scope(Reservation).where(reservation_status: 'declined').order(start_date: :asc)
+    @closed_reservations = policy_scope(Reservation).where("end_date > #{Date.today}").order(start_date: :asc)
   end
 end
