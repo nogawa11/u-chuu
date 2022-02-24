@@ -237,7 +237,7 @@ puts "Creating New Reservations..."
 
 5.times do
   reservation = Reservation.new(
-    status: Faker::Boolean.boolean,
+    reservation_status: rand(0..2),
     start_date: Faker::Date.forward(days: rand(1..30)),
     end_date: Faker::Date.forward(days: rand(31..90)),
     number_of_guests: rand(1..999_999),
