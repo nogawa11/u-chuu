@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     @as_guest_reviews.each do |guest_review|
       guest_sum << guest_review.rating
     end
-    @host_rating = (host_sum.sum / host_sum.count).to_f.round(1)
-    @guest_rating = (guest_sum.sum / guest_sum.count).to_f.round(1)
+    @host_rating = host_sum.length.zero? || host_sum.sum.zero? ? 0 : (host_sum.sum / host_sum.count).to_f.round(1)
+    @guest_rating = guest_sum.length.zero? || guest_sum.sum.zero? ? 0 :  (guestguest_sum.sum / guest_sum.count).to_f.round(1)
   end
 
   def edit
