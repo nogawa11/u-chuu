@@ -68,22 +68,22 @@
 
 .search-bar {
   border-radius: 50px 0 0 50px;
-  border: 2px solid #1e175a !important;
-  background-color: rgb(23, 23, 24) !important;
+  border: 2px solid #230b91 !important;
+  background-color: rgb(34, 34, 36) !important;
   color: #e2e2e2;
 }
 
 .search-button {
   border-radius: 0 50px 50px 0;
   padding-right: 16px;
-  border: 2px solid #1e175a;
-  background-color:#1e175a;
+  border: 2px solid #230b91;
+  background-color:#230b91;
   color: rgb(214, 214, 214);
   transition: 0.6s;
 
   &:hover {
-    border: 2px solid #230b91;
-    background-color: #230b91;
+    border: 2px solid #270aa8;
+    background-color: #270aa8;
     color: rgb(241, 241, 241);
   }
 }
