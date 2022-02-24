@@ -1,0 +1,110 @@
+<div class="container mt-5 pt-5 pb-5">
+  <div class="d-flex pb-2 mb-3 align-items-center">
+    <% if @user.photo.key.present? %>
+      <%= cl_image_tag(@user.photo.key, class: 'profile-avatar') %>
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="profile-avatar" alt="">
+    <% end %>
+    <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+    <% if @user == current_user %>
+      <%= link_to "<i class='fas fa-edit'></i> edit profile".html_safe, edit_user_path(@user), class: "add-review-button ms-3" %>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+    <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+    <%= link_to "<i class='fas fa-plus'></i> Leave a review".html_safe, new_user_user_review_path(user_id: params[:id]), class: "add-review-button" %>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    <div class="d-flex align-items-end mb-1">
+      <h5 class="gray trispace" style="margin-bottom: 0;"><em>As a Guest</em></h5>
+      <p class="gray ms-3" style="margin-bottom: 0;">(<%= @guest_rating %> <i class="fas fa-star warning stars"></i>)</p>
+    </div>
+    <% if @as_guest_reviews.first.present? %>
+      <% @as_guest_reviews.each do |guest_review| %>
+        <div class="d-flex align-items-center mb-3">
+          <% (guest_review.rating).times do %>
+            <i class="fas fa-star warning stars"></i>
+          <% end %>
+          <% (5 - guest_review.rating).times do %>
+            <i class="far fa-star stars"></i>
+          <% end %>
+          <p class="ms-3 offwhite" style="padding-bottom: 0; margin-bottom: 0;">- "<%= guest_review.comment %>"</p>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="gray mb-3 ms-3"><em>No reviews received</em></p>
+    <% end %>
+    </div>
+    <div class="col">
+      <div class="d-flex align-items-end mb-1">
+      <h5 class="gray trispace" style="margin-bottom: 0;"><em>As a Host</em></h5>
+      <p class="gray ms-3" style="margin-bottom: 0;">(<%= @host_rating %> <i class="fas fa-star warning stars"></i>)</p>
+    </div>
+      <% if @as_host_reviews.first.present? %>
+        <% @as_host_reviews.each do |host_review| %>
+          <div class="d-flex align-items-center mb-3">
+            <% (host_review.rating).times do %>
+              <i class="fas fa-star warning stars offwhite"></i>
+            <% end %>
+            <% (5 - host_review.rating).times do %>
+              <i class="far fa-star stars offwhite"></i>
+            <% end %>
+            <p class="ms-3 offwhite" style="padding-bottom: 0; margin-bottom: 0;">- "<%= host_review.comment %>"</p>
+          </div>
+        <% end %>
+      <% else %>
+        <h5 class="gray mb-3 ms-3"><em>No reviews received</em></h5>
+      <% end %>
+    </div>
+  </div>
+
+  <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+  <% if @user.planets.first.present? %>
+    <div class="planet-cards mt-3 mb-3">
+      <% @user.planets.each do |planet| %>
+        <div class="card-planet">
+          <% if planet.photos.first.present? %>
+            <%= cl_image_tag(planet.photos.first.key) %>
+          <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+            <% end %>
+          <div class="card-planet-infos">
+            <div class="card-planet-text">
+              <div class="d-flex align-items-end">
+                <h2 class="me-2"><%= planet.name %></h2>
+                <p class= "d-flex justify-content-end align-items-center planet-rating"><span class="me-1"><%= planet.reviews.present? ? "#{(planet.reviews.reduce(0) { |sum, curr| curr.rating + sum } / planet.reviews.size).to_f.round(1) }" : "N/A" %></span> <i class="fas fa-star me-2"></i> (<%= planet.reviews.count %> reviews)</p>
+              </div>
+              <p class="mt-2"><%= planet.description.chars.first(75).join ... %></p>
+              <div class="d-flex justify-content-end card-planet-price mt-2">
+                <p><strong><%= number_to_currency(planet.price_per_night, precision: 0) %></strong> per night</p>
+              </div>
+            </div>
+          </div>
+          <%= link_to "", planet_path(planet, params[:browse]), class: "planet-card-link" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h5 class="gray mb-3 ms-3"><em>No hosted planets</em></h5>
+  <% end %>
+
+  <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+  <% if @user.reviews.first.present? %>
+    <% @user.reviews.each do |review| %>
+      <div class="d-flex align-items-center">
+        <h5 class="trispace me-3 offwhite" style="margin-bottom: 0; padding-bottom: 0;"><%= review.planet.name %></h5>
+        <% (review.rating).times do %>
+          <i class="fas fa-star warning stars"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star stars"></i>
+        <% end %>
+      </div>
+      <p class="gray"><%= review.content %></p>
+    <% end %>
+  <% else %>
+    <h5 class="gray mb-3 ms-3"><em>No reviews given</em></h5>
+  <% end %>
+</div>

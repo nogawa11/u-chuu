@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :users, only: [:show, :edit, :update] do
+    resources :user_reviews, only: [:new, :create]
+  end
+
   root to: 'pages#home'
   resources :reservations
   resources :planets
