@@ -1,45 +1,48 @@
-<div class="reservation m-5 p-5">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h1 class="main-heading mt-10 offwhite trispace">Reservation Details</h1>
-      <% if @reservation.user == current_user %>
-        <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
-      <% elsif @reservation.planet.user == current_user %>
-        <%= link_to "<i class='fas fa-undo'></i> Back to hostings".html_safe, owner_reservations_path, class: "add-review-button" %>
-      <% end %>
-    </div>
-    <div>
-      <div class="row">
-        <div class="col-12 col-lg-6">
-          <div class="details white">
-            <p class="gray"><strong>Dates: </strong></p>
-            <p class="offwhite"><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
-            <p class="gray"><strong>Guests: </strong></p>
-            <p class="offwhite"><%= @reservation.number_of_guests %> guests</p>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="card-reservation">
-            <div class="card-details m-5">
-              <div class="card-product d-flex gap-4">
-                <% if @reservation.planet.photos.first.present? %>
-                  <%= cl_image_tag(@reservation.planet.photos.first.key) %>
-                <% else %>
-                  <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
-                <% end %>
-              <div class="card-product-infos">
-                <div class="card-reservation-infos">
-                  <h5><strong><%= @reservation.planet.name %></strong></h5>
-                  <p class="mb-1"><%= @reservation.planet.description.split(" ").first(10).join(" ") %>...</p>
-                  <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i> </span>
-                  <span>(<%= pluralize(@reservation.planet.reviews.count, 'review') %>)</span>
-                  </div>
+<div class="container pb-5 mb-3">
+  <div class="d-flex justify-content-center mt-5 pt-5">
+    <h1 class="main-heading offwhite trispace mb-3">Reservation Details</h1>
+  </div>
+  <div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="card-reservation">
+          <div class="card-details m-5">
+            <div class="card-product d-flex gap-4 pt-1">
+              <% if @reservation.planet.photos.first.present? %>
+                <%= cl_image_tag(@reservation.planet.photos.first.key) %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="planet" >
+              <% end %>
+            <div class="card-product-infos">
+              <div class="card-reservation-infos">
+                <h5><strong><%= @reservation.planet.name %></strong></h5>
+                <p class="mb-1"><%= @reservation.planet.description.split(" ").first(10).join(" ") %>...</p>
+                <span><%= @reviews_avg %><i class="fas fa-star warning ms-1 stars"></i> </span>
+                <span>(<%= pluralize(@reservation.planet.reviews.count, 'review') %>)</span>
                 </div>
               </div>
-              <div class="price-details mt-4 pt-4 border-top">
-                <h4>Price details</h4>
+            </div>
+            <div class="price-details mt-4 pt-4 border-top pb-1">
+              <h4>Booking details</h4>
+            </div>
+            <div class="price-details">
+              <div class="details white" >
+                <p class="offwhite" style="font-size: 14px;"><strong>Dates: </strong></p>
+                <p class="lighterwhite" style="font-size: 18px;"><%= @reservation.start_date %> - <%= @reservation.end_date %></p>
+                <p class="offwhite" style="font-size: 14px;"><strong>Guests: </strong></p>
+                <p class="lighterwhite" style="font-size: 18px;"><%= @reservation.number_of_guests %> guests</p>
               </div>
-              <%= render "total_price" %>
+            </div>
+            <div class="price-details mt-4 pt-4 border-top">
+              <h4>Price details</h4>
+            </div>
+            <%= render "total_price" %>
+            <div class="mt-3 d-flex justify-content-center">
+              <% if @reservation.user == current_user %>
+                <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
+              <% elsif @reservation.planet.user == current_user %>
+                <%= link_to "<i class='fas fa-undo'></i> Back to hostings".html_safe, owner_reservations_path, class: "add-review-button" %>
+              <% end %>
             </div>
           </div>
         </div>

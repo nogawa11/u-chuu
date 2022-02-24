@@ -5,13 +5,21 @@
     <% else %>
       <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="profile-avatar" alt="">
     <% end %>
-    <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+    <% if @user.name.present? %>
+      <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+    <% else %>
+      <h2 class="trispace ms-3">Profile</h2>
+    <% end %>
     <% if @user == current_user %>
       <%= link_to "<i class='fas fa-edit'></i> edit profile".html_safe, edit_user_path(@user), class: "add-review-button ms-3" %>
     <% end %>
   </div>
   <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-    <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+    <% if @user.name.present? %>
+      <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+    <% else %>
+      <h3 class="gray ">Reviews</h3>
+    <% end %>
     <%= link_to "<i class='fas fa-plus'></i> Leave a review".html_safe, new_user_user_review_path(user_id: params[:id]), class: "add-review-button" %>
   </div>
 
@@ -19,7 +27,9 @@
     <div class="col">
     <div class="d-flex align-items-end mb-1">
       <h5 class="gray trispace" style="margin-bottom: 0;"><em>As a Guest</em></h5>
-      <p class="gray ms-3" style="margin-bottom: 0;">(<%= @guest_rating %> <i class="fas fa-star warning stars"></i>)</p>
+      <% if @as_guest_reviews.first.present? %>
+        <p class="gray ms-3" style="margin-bottom: 0;">(<%= @guest_rating %> <i class="fas fa-star warning stars"></i>)</p>
+      <% end %>
     </div>
     <% if @as_guest_reviews.first.present? %>
       <% @as_guest_reviews.each do |guest_review| %>
@@ -40,7 +50,9 @@
     <div class="col">
       <div class="d-flex align-items-end mb-1">
       <h5 class="gray trispace" style="margin-bottom: 0;"><em>As a Host</em></h5>
-      <p class="gray ms-3" style="margin-bottom: 0;">(<%= @host_rating %> <i class="fas fa-star warning stars"></i>)</p>
+      <% if @as_host_reviews.first.present? %>
+        <p class="gray ms-3" style="margin-bottom: 0;">(<%= @host_rating %> <i class="fas fa-star warning stars"></i>)</p>
+      <% end %>
     </div>
       <% if @as_host_reviews.first.present? %>
         <% @as_host_reviews.each do |host_review| %>
@@ -55,12 +67,16 @@
           </div>
         <% end %>
       <% else %>
-        <h5 class="gray mb-3 ms-3"><em>No reviews received</em></h5>
+        <p class="gray mb-3 ms-3"><em>No reviews received</em></p>
       <% end %>
     </div>
   </div>
 
-  <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+  <% if @user.name.present? %>
+    <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+  <% else %>
+    <h3 class="gray border-bottom mt-4 pb-2 mb-3">Planets</h3>
+  <% end %>
   <% if @user.planets.first.present? %>
     <div class="planet-cards mt-3 mb-3">
       <% @user.planets.each do |planet| %>
@@ -90,11 +106,15 @@
     <h5 class="gray mb-3 ms-3"><em>No hosted planets</em></h5>
   <% end %>
 
-  <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+  <% if @user.name.present? %>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+  <% else %>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews given</h3>
+  <% end %>
   <% if @user.reviews.first.present? %>
     <% @user.reviews.each do |review| %>
       <div class="d-flex align-items-center">
-        <h5 class="trispace me-3 offwhite" style="margin-bottom: 0; padding-bottom: 0;"><%= review.planet.name %></h5>
+        <h5 class="trispace me-3 offwhite" style="margin-bottom: 0; padding-bottom: 0;"><%= link_to review.planet.name, planet_path(review.planet), style: "text-decoration: none;" %></h5>
         <% (review.rating).times do %>
           <i class="fas fa-star warning stars"></i>
         <% end %>
