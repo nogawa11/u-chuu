@@ -486,3 +486,39 @@
   align-items: flex-end;
   // position: relative;
 }
+
+// card-hosting-owner
+
+.card-owner-hostings {
+  overflow: hidden;
+  height: 120px;
+  background: rgb(38, 38, 43);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-owner-hostings img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-owner-hostings h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #4017f7;
+}
+
+.card-owner-hostings p {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgb(177, 177, 177);
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-owner-hostings .card-owner-hostings-infos {
+  padding: 16px;
+}

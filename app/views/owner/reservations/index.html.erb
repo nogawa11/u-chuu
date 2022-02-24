@@ -1,6 +1,18 @@
 <div class="container mt-5 pt-5">
-  <h1 class="mb-3 trispace">My Hostings</h1>
+  <h1 class="mb-3 trispace offwhite">My Hostings</h1>
+  <h3 class="offwhite">Approved</h3>
+  <div class="reservations-cards">
   <% @approved_reservations.each do |approved_reservation| %>
-    <h3 class="h4 gray"><%= approved_reservation.planet.name %></h3>
+    <div class="card-owner-hostings">
+      <%= cl_image_tag(approved_reservation.planet.photos.first.key) %>
+      <div class="card-owner-hostings-infos">
+        <h2 class="trispace">Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
   <% end %>
+  </div>
+  <h3>Pending</h3>
+  <h3>Declined</h3>
+  <h3>Closed</h3>
 </div>
