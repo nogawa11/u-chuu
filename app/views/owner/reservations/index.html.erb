@@ -1,18 +1,57 @@
 <div class="container mt-5 pt-5">
   <h1 class="mb-3 trispace offwhite">My Hostings</h1>
-  <h3 class="offwhite">Approved</h3>
-  <div class="reservations-cards">
-  <% @approved_reservations.each do |approved_reservation| %>
-    <div class="card-owner-hostings">
-      <%= cl_image_tag(approved_reservation.planet.photos.first.key) %>
-      <div class="card-owner-hostings-infos">
-        <h2 class="trispace">Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+  <h2 class="offwhite">Upcoming</h2>
+  <h5 class="gray">Pending</h5>
+  <div class="reservations-cards mb-3">
+    <% @pending_reservations.each do |pending_reservation| %>
+      <div class="card-owner-hostings">
+        <%= cl_image_tag(pending_reservation.planet.photos.first.key) %>
+        <div class="card-owner-hostings-infos">
+          <h3 class="trispace"><%= pending_reservation.planet.name %></h3>
+          <p><span style="color: gray;">Pending <i class="fas fa-clock"></i></span></p>
+          <p><span class="dark-gray">Guest: </span><%= pending_reservation.user.name %></p>
+          <p><%= pluralize((pending_reservation.end_date - pending_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(pending_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
+          <p class="dark-gray"><%= pending_reservation.start_date %> - <%= pending_reservation.end_date %></p>
+          <%= link_to "Change Status", reservation_path(pending_reservation) %>
+          <%= link_to "Details", reservation_path(pending_reservation) %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
-  <h3>Pending</h3>
-  <h3>Declined</h3>
-  <h3>Closed</h3>
+  <h5 class="gray">Approved</h5>
+  <div class="reservations-cards mb-3">
+    <% @approved_reservations.each do |approved_reservation| %>
+      <div class="card-owner-hostings">
+        <%= cl_image_tag(approved_reservation.planet.photos.first.key) %>
+        <div class="card-owner-hostings-infos">
+          <h3 class="trispace"><%= approved_reservation.planet.name %></h3>
+          <p><span style="color: rgb(21, 156, 21);">Approved <i class="fas fa-check"></i></span></p>
+          <p><span class="dark-gray">Guest: </span><%= approved_reservation.user.name %></p>
+          <p><%= pluralize((approved_reservation.end_date - approved_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(approved_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
+          <p class="dark-gray"><%= approved_reservation.start_date %> - <%= approved_reservation.end_date %></p>
+          <%= link_to "Change Status", reservation_path(approved_reservation) %>
+          <%= link_to "Details", reservation_path(approved_reservation) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h5 class="gray">Declined</h5>
+  <div class="reservations-cards mb-3">
+    <% @declined_reservations.each do |declined_reservation| %>
+      <div class="card-owner-hostings">
+        <%= cl_image_tag(declined_reservation.planet.photos.first.key) %>
+        <div class="card-owner-hostings-infos">
+          <h3 class="trispace"><%= declined_reservation.planet.name %></h3>
+          <p><span style="color: red;">Declined <i class="fas fa-times"></i></span></p>
+          <p><span class="dark-gray">Guest: </span><%= declined_reservation.user.name %></p>
+          <p><%= pluralize((declined_reservation.end_date - declined_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(declined_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
+          <p class="dark-gray"><%= declined_reservation.start_date %> - <%= declined_reservation.end_date %></p>
+          <%= link_to "Change Status", reservation_path(declined_reservation) %>
+          <%= link_to "Details", reservation_path(declined_reservation) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h5 class="gray">Closed</h5>
+  <h2 class="offwhite">Past Hostings<h2>
 </div>
