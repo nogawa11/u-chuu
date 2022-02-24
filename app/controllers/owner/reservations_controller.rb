@@ -5,6 +5,5 @@ class Owner::ReservationsController < ApplicationController
     @approved_reservations = policy_scope(Reservation).where(reservation_status: 'approved').order(start_date: :asc)
     @pending_reservations = policy_scope(Reservation).where(reservation_status: 'pending').order(start_date: :asc)
     @declined_reservations = policy_scope(Reservation).where(reservation_status: 'declined').order(start_date: :asc)
-    @closed_reservations = policy_scope(Reservation).where("end_date > #{Date.today}").order(start_date: :asc)
   end
 end

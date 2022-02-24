@@ -1,19 +1,22 @@
 <div class="container mt-5 pt-5">
   <h1 class="mb-3 trispace offwhite">My Hostings</h1>
-  <h2 class="offwhite">Upcoming</h2>
   <h5 class="gray">Pending</h5>
   <div class="reservations-cards mb-3">
     <% @pending_reservations.each do |pending_reservation| %>
       <div class="card-owner-hostings">
         <%= cl_image_tag(pending_reservation.planet.photos.first.key) %>
         <div class="card-owner-hostings-infos">
-          <h3 class="trispace"><%= pending_reservation.planet.name %></h3>
-          <p><span style="color: gray;">Pending <i class="fas fa-clock"></i></span></p>
+          <div class="d-flex justify-content-between align-items-end">
+            <h3 class="trispace"><%= pending_reservation.planet.name %></h3>
+            <%= link_to "<i class='fas fa-edit'></i>".html_safe, reservation_path(pending_reservation), class: "add-review-button-re" %>
+          </div>
+          <p><span style="color: gray;">Pending <i class="fas fa-clock me-1"></i></span></p>
           <p><span class="dark-gray">Guest: </span><%= pending_reservation.user.name %></p>
           <p><%= pluralize((pending_reservation.end_date - pending_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(pending_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
-          <p class="dark-gray"><%= pending_reservation.start_date %> - <%= pending_reservation.end_date %></p>
-          <%= link_to "Change Status", reservation_path(pending_reservation) %>
-          <%= link_to "Details", reservation_path(pending_reservation) %>
+          <p class="dark-gray"><%= pending_reservation.start_date %> to <%= pending_reservation.end_date %></p>
+          <div class="d-flex mt-2 justify-content-end">
+            <%= link_to "See details <i class='fas fa-arrow-right'></i>".html_safe, reservation_path(pending_reservation), class: "add-review-button-re" %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -28,8 +31,8 @@
           <p><span style="color: rgb(21, 156, 21);">Approved <i class="fas fa-check"></i></span></p>
           <p><span class="dark-gray">Guest: </span><%= approved_reservation.user.name %></p>
           <p><%= pluralize((approved_reservation.end_date - approved_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(approved_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
-          <p class="dark-gray"><%= approved_reservation.start_date %> - <%= approved_reservation.end_date %></p>
-          <%= link_to "Change Status", reservation_path(approved_reservation) %>
+          <p class="dark-gray"><%= approved_reservation.start_date %> to <%= approved_reservation.end_date %></p>
+          <%= link_to "Status", reservation_path(approved_reservation) %>
           <%= link_to "Details", reservation_path(approved_reservation) %>
         </div>
       </div>
@@ -45,13 +48,11 @@
           <p><span style="color: red;">Declined <i class="fas fa-times"></i></span></p>
           <p><span class="dark-gray">Guest: </span><%= declined_reservation.user.name %></p>
           <p><%= pluralize((declined_reservation.end_date - declined_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(declined_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
-          <p class="dark-gray"><%= declined_reservation.start_date %> - <%= declined_reservation.end_date %></p>
-          <%= link_to "Change Status", reservation_path(declined_reservation) %>
+          <p class="dark-gray"><%= declined_reservation.start_date %> to <%= declined_reservation.end_date %></p>
+          <%= link_to "Status", reservation_path(declined_reservation) %>
           <%= link_to "Details", reservation_path(declined_reservation) %>
         </div>
       </div>
     <% end %>
   </div>
-  <h5 class="gray">Closed</h5>
-  <h2 class="offwhite">Past Hostings<h2>
 </div>

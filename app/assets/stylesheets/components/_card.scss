@@ -491,7 +491,7 @@
 
 .card-owner-hostings {
   overflow: hidden;
-  height: 200px;
+  height: 220px;
   background: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -510,7 +510,7 @@
 }
 
 .card-owner-hostings h3 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 0;
   color: #4017f7;
@@ -526,4 +526,5 @@
 
 .card-owner-hostings .card-owner-hostings-infos {
   padding: 16px;
+  width: 100%;
 }
