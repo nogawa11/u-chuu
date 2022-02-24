@@ -81,4 +81,7 @@
       <% end %>
     </div>
   <% end %>
+  <% if !@reservations.first.present? %>
+    <h5 class="gray"><em>No hostings at this time</em></h5>
+  <% end %>
 </div>
