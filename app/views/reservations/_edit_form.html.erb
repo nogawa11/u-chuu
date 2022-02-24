@@ -10,7 +10,7 @@
     </div>
     <%= f.input :number_of_guests %>
     <% if @reservation.planet.user == current_user %>
-      <%= f.input :status, label: "Approved" %>
+      <%= f.input :reservation_status, collection: Reservation.reservation_statuses.keys, include_blank: false %>
     <% end %>
     <%= f.submit class:"btn btn-primary w-100 mt-2 mb-1" %>
   <% end %>
