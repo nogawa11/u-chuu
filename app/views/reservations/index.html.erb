@@ -13,11 +13,11 @@
                 </div>
                 <h5>Reservation status:
                   <% if reservation.approved? %>
-                    <span class="ms-1" style="color: rgb(21, 156, 21);">Approved <i class="fas fa-check"></i></span>
+                    <span class="ms-1 green">Approved <i class="fas fa-check"></i></span>
                   <% elsif reservation.pending? %>
                     <span class="ms-1" style="color: gray;">Pending <i class="fas fa-clock"></i></span>
                   <% elsif reservation.declined? %>
-                    <span class="ms-1" style="color: red;">Declined <i class="fas fa-times"></i></span>
+                    <span class="ms-1 redn">Declined <i class="fas fa-times"></i></span>
                   <% end %>
                 </h5>
               </div>
