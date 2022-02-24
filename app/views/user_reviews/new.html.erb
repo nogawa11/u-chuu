@@ -8,8 +8,8 @@
         <%= f.input :rating, collection: 0..5, include_blank: false %>
         <%= f.input :comment %>
         <%= f.input :review_type, collection: UserReview.review_types.keys, label: "Was #{@user.name.downcase.capitalize} a host or guest?", include_blank: false %>
-      <%= f.submit class:"btn btn-primary w-100 mt-2" %>
+        <%= f.submit class:"btn btn-primary w-100 mt-2" %>
       <% end %>
     </div>
-  <div>
+  </div>
 </div>
