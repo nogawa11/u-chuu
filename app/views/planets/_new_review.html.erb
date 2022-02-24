@@ -1,9 +1,13 @@
 <div id="new-review-form" class="container"  data-show-target="form">
   <div  class="col col-6 mt-2 card p-3 new-review-form">
     <%= simple_form_for [@planet, @review] do |f| %>
-      <%= f.input :rating, input_html: { min: '0', max: "5" } %>
-      <%= f.input :content %>
-      <%= f.submit "Create Review", class:"btn btn-primary m-auto mt-1", style: "width: 100%" %>
+      <div class="star-rating">
+        <% 5.times do |i| %>
+          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+      </div>
+      <%= f.input :content, input_html: { data: { "show-target": "content", action: "input->show#isContentEmpty" } } %>
+      <%= f.submit "Create Review", id:"create-review-button", class:"btn btn-primary m-auto mt-1", data: { "show-target": "createReviewButton" }, style: "width: 100%", disabled: true %>
     <% end %>
   </div>
 </div>

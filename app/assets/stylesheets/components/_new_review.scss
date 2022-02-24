@@ -5,7 +5,46 @@
   transition: all 0.3s;
 
   &.show {
-    height: 300px;
+    height: 210px;
     padding: 1rem;
+  }
+
+  input[type="submit"]:disabled {
+    cursor: not-allowed;
+    background-color: white;
+    color: black;
+  }
+}
+
+.star-rating {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  top: 10px;
+
+  input {
+    visibility: hidden;
+    margin-right: 1em;
+    font-size: 18px;
+    text-shadow: 0.5px 0.5px 3px #E67E23;
+  }
+
+  input:before {
+    cursor: pointer;
+    visibility: visible;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f005';
+    font-weight: 900;
+    color: #FD4;
+    transition: color 0.35s;
+  }
+
+  input:hover {
+    transform: scale(1.2) translate(-10%, -10%);
+  }
+
+  input:checked ~ input:before {
+    color: #fff;
   }
 }
