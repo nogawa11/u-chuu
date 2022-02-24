@@ -1,4 +1,4 @@
-<div class="container pt-3 mb-5 planet-show mt-5">
+<div class="container pt-3 mb-5 planet-show mt-5" data-controller="show">
   <h1 class="trispace mt-4 offwhite"><%= @planet.name %></h1>
   <div class="d-flex justify-content-between">
     <div>
@@ -18,8 +18,15 @@
   </div>
   <div class="d-flex gap-3 mt-5 pb-3 col col-6 align-items-end border-bottom justify-content-between">
     <h3 class= "trispace offwhite" style="margin: 0">Reviews</h3>
-    <%= link_to "<i class='fas fa-plus'></i> Add a review".html_safe, new_planet_review_path(@planet), class:"add-review-button" %>
+    <button
+      class="add-review-button"
+      data-show-target="button"
+      data-action="click->show#showForm">
+        <i class='fas fa-plus'></i>
+        Add a review
+    </button>
   </div>
+  <%= render "new_review" %>
   <% if @planet.reviews.first.present? %>
     <ul class="list-group col col-6 black mt-2">
       <% @planet.reviews.each do |review| %>

@@ -1,0 +1,11 @@
+
+#new-review-form {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  &.show {
+    height: 300px;
+    padding: 1rem;
+  }
+}
