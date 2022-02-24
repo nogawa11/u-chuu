@@ -5,7 +5,11 @@
     <div class="reservations-cards mb-3">
       <% @pending_reservations.each do |pending_reservation| %>
         <div class="card-owner-hostings">
-          <%= cl_image_tag(pending_reservation.planet.photos.first.key) %>
+          <% if pending_reservation.planet.photos.first.present? %>
+            <%= cl_image_tag(pending_reservation.planet.photos.first.key) %>
+          <% else %>
+             <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+          <% end %>
           <div class="card-owner-hostings-infos">
             <div class="d-flex justify-content-between align-items-end mt-1">
               <h3 class="trispace"><%= pending_reservation.planet.name %></h3>
@@ -28,7 +32,11 @@
     <div class="reservations-cards mb-3">
       <% @approved_reservations.each do |approved_reservation| %>
         <div class="card-owner-hostings">
-          <%= cl_image_tag(approved_reservation.planet.photos.first.key) %>
+          <% if approved_reservation.planet.photos.first.present? %>
+            <%= cl_image_tag(approved_reservation.planet.photos.first.key) %>
+          <% else %>
+             <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+          <% end %>
           <div class="card-owner-hostings-infos">
             <div class="d-flex justify-content-between align-items-end mt-1">
               <h3 class="trispace"><%= approved_reservation.planet.name %></h3>
@@ -51,7 +59,11 @@
     <div class="reservations-cards mb-3">
       <% @declined_reservations.each do |declined_reservation| %>
         <div class="card-owner-hostings">
-          <%= cl_image_tag(declined_reservation.planet.photos.first.key) %>
+          <% if declined_reservation.planet.photos.first.present? %>
+            <%= cl_image_tag(declined_reservation.planet.photos.first.key) %>
+          <% else %>
+             <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+          <% end %>
           <div class="card-owner-hostings-infos">
             <div class="d-flex justify-content-between align-items-end  mt-1">
               <h3 class="trispace"><%= declined_reservation.planet.name %></h3>
