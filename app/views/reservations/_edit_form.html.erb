@@ -1,14 +1,16 @@
 <div class="row card p-3">
   <%= simple_form_for [@planet, @reservation] do |f| %>
-    <div class="row">
-      <div class="col col-6">
-        <%= f.input :start_date, as: :date, html5: true %>
+    <% if @reservation.user == current_user %>
+      <div class="row">
+        <div class="col col-6">
+          <%= f.input :start_date, as: :date, html5: true %>
+        </div>
+        <div class="col col-6">
+          <%= f.input :end_date, as: :date, html5: true %>
+        </div>
       </div>
-      <div class="col col-6">
-        <%= f.input :end_date, as: :date, html5: true %>
-      </div>
-    </div>
-    <%= f.input :number_of_guests %>
+      <%= f.input :number_of_guests %>
+    <% end %>
     <% if @reservation.planet.user == current_user %>
       <%= f.input :reservation_status, collection: Reservation.reservation_statuses.keys, include_blank: false %>
     <% end %>

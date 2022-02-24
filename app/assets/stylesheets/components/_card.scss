@@ -486,3 +486,52 @@
   align-items: flex-end;
   // position: relative;
 }
+
+// card-hosting-owner
+
+.card-owner-hostings {
+  overflow: hidden;
+  height: 220px;
+  background: rgb(38, 38, 43);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+
+  .dark-gray {
+    color: rgb(114, 114, 114);
+  }
+
+  h5 {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-top: 4px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgb(177, 177, 177);
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+}
+
+.card-owner-hostings img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.card-owner-hostings h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #4017f7;
+}
+
+.card-owner-hostings .card-owner-hostings-infos {
+  padding: 16px;
+  width: 100%;
+}

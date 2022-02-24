@@ -2,7 +2,11 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <h1 class="main-heading mt-10 offwhite trispace">Reservation Details</h1>
-      <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
+      <% if @reservation.user == current_user %>
+        <%= link_to "<i class='fas fa-undo'></i> Back to reservations".html_safe, reservations_path, class: "add-review-button" %>
+      <% elsif @reservation.planet.user == current_user %>
+        <%= link_to "<i class='fas fa-undo'></i> Back to hostings".html_safe, owner_reservations_path, class: "add-review-button" %>
+      <% end %>
     </div>
     <div>
       <div class="row">

@@ -9,3 +9,12 @@
     color: rgb(147, 101, 255);
   }
 }
+
+.add-review-button-re {
+  color: rgb(192, 192, 192);
+  text-decoration: none !important;
+
+  &:hover {
+    color: #4017f7;
+  }
+}
