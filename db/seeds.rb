@@ -14,8 +14,8 @@ owner = User.new(
 owner.save!
 
 renter = User.new(
-  name: "lewagon",
-  email: "lewagon@gmail.com",
+  name: "lewagonrenter",
+  email: "lewagonrenter@gmail.com",
   password: "123123"
 )
 renter.save!
