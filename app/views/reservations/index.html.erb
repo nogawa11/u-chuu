@@ -12,10 +12,12 @@
                   <h5><%= pluralize(reservation.number_of_guests, 'guest')%> <i class="fas fa-users ms-1"></i></h5>
                 </div>
                 <h5>Reservation status:
-                  <% if reservation.status? %>
+                  <% if reservation.approved? %>
                     <span class="ms-1" style="color: rgb(21, 156, 21);">Approved <i class="fas fa-check"></i></span>
-                  <% else %>
+                  <% elsif reservation.pending? %>
                     <span class="ms-1" style="color: gray;">Pending <i class="fas fa-clock"></i></span>
+                  <% elsif reservation.declined? %>
+                    <span class="ms-1" style="color: red;">Declined <i class="fas fa-times"></i></span>
                   <% end %>
                 </h5>
               </div>
