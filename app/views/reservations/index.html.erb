@@ -1,9 +1,10 @@
 <div class="home">
-<div class="container pt-4">
+<div class="container pt-4 pb-5">
   <h1 class="pt-5 mt-4 trispace mb-3 offwhite"> My Reservations</h1>
   <div class="reservations-cards pb-4">
       <% @reservations.each do |reservation| %>
             <div class="card-reservation-home">
+              <%= cl_image_tag(reservation.planet.photos.first.key) %>
               <div class="ps-3 pe-3 pt-3">
                 <h2 class="mb-1" style="font-size: 24px;"><%= reservation.planet.name %></h2>
                 <p class="mb-2"><%= reservation.start_date %> - <%= reservation.end_date %></p>

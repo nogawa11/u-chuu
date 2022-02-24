@@ -409,10 +409,18 @@
 
 .card-reservation-home {
   overflow: hidden;
-  background: rgb(38, 38, 43);
+  // background: rgb(38, 38, 43);
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   position: relative;
+}
+
+.card-reservation-home img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-reservation-home h2 {
@@ -420,7 +428,7 @@
   font-weight: bold;
   margin: 0;
   font-family: 'Trispace', sans-serif;
-  color:#4017f7;
+  color:#f0f0f0;
 }
 
 .card-reservation-home h5 {
@@ -492,14 +500,16 @@
 .card-owner-hostings {
   overflow: hidden;
   height: 220px;
-  background: rgb(38, 38, 43);
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(20, 19, 66, 0.9) 100%);
+  // background: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 8px;
 
   .dark-gray {
-    color: rgb(114, 114, 114);
+    color: rgb(145, 145, 145);
   }
 
   h5 {
@@ -512,7 +522,7 @@
   p {
     font-size: 14px;
     line-height: 1.4;
-    color: rgb(177, 177, 177);
+    color: rgb(224, 224, 224);
     margin-bottom: 0;
     margin-top: 4px;
   }
@@ -528,7 +538,7 @@
   font-size: 22px;
   font-weight: bold;
   margin: 0;
-  color: #4017f7;
+  color: #e7e7e7;
 }
 
 .card-owner-hostings .card-owner-hostings-infos {
