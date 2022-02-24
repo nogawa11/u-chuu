@@ -114,7 +114,7 @@
   <% if @user.reviews.first.present? %>
     <% @user.reviews.each do |review| %>
       <div class="d-flex align-items-center">
-        <h5 class="trispace me-3 offwhite" style="margin-bottom: 0; padding-bottom: 0;"><%= review.planet.name %></h5>
+        <h5 class="trispace me-3 offwhite" style="margin-bottom: 0; padding-bottom: 0;"><%= link_to review.planet.name, planet_path(review.planet), style: "text-decoration: none;" %></h5>
         <% (review.rating).times do %>
           <i class="fas fa-star warning stars"></i>
         <% end %>
