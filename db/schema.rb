@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2022_02_24_031444) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.boolean "status"
     t.date "start_date"
     t.date "end_date"
     t.integer "number_of_guests"
@@ -79,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_02_24_031444) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "reservation_status"
     t.index ["planet_id"], name: "index_reservations_on_planet_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

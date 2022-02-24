@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
     authorize @reservation
     @reservation.planet = @planet
     # @reservation.user = @user
-    @reservation.status = false
+    @reservation.reservation_status = 'pending'
     if @reservation.save
       redirect_to reservations_path
     else
@@ -39,6 +39,8 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params) && @reservation.user == current_user
+      @reservation.reservation_status = 'pending'
+      @reservation.save
       redirect_to reservations_path
     elsif @reservation.update(reservation_params) && @reservation.planet.user == current_user
       redirect_to owner_reservations_path
@@ -60,6 +62,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:planet_id, :user_id, :status, :start_date, :end_date, :number_of_guests)
+    params.require(:reservation).permit(:planet_id, :user_id, :status, :start_date, :end_date, :number_of_guests, :reservation_status)
   end
 end
