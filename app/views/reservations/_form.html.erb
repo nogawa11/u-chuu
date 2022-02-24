@@ -4,13 +4,15 @@
       <div class="col col-6">
         <%= f.input :start_date, as: :date, html5: true, input_html: {
           "data-action": "input->form#updateStartDate",
-          "data-form-target": "startDateInput"
+          "data-form-target": "startDateInput",
+          min: Date.current
         } %>
       </div>
       <div class="col col-6">
         <%= f.input :end_date, as: :date, html5: true, input_html: {
           "data-action": "input->form#updateEndDate",
-          "data-form-target": "endDateInput"
+          "data-form-target": "endDateInput",
+          min: 1.day.from_now
         }%>
       </div>
     </div>
@@ -20,7 +22,7 @@
       "data-action": "input->form#updateNumberOfGuests",
       "data-form-target": "numberOfGuestsInput"
     } %>
-  <%= render "reservations/total_price" %>
-  <%= f.submit class:"btn btn-primary w-100 mt-2" %>
+    <%= render "reservations/total_price" %>
+    <%= f.submit class:"btn btn-primary w-100 mt-2" %>
   <% end %>
 </div>
