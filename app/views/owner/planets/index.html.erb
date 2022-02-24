@@ -3,6 +3,9 @@
     <h1 class="d-inline-block trispace offwhite">My Planets</h1>
     <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
   </div>
+  <% if !@planets.first.present? %>
+    <h5 class="gray mt-1"><em>No planets at this time</em></h5>
+  <% end %>
   <div class="planet-cards mt-2 mb-5">
     <% @planets.each do |planet| %>
       <div class="card-planet-owner">
