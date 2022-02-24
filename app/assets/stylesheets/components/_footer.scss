@@ -1,12 +1,14 @@
 .footer {
   background: #2e2e2e;
   background: linear-gradient(rgba(#2e2e2e, 70%), rgba(0,0,0, 0%));
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(315px, 1fr));
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: rgba(#c2a6fa, 0.2);
+  width: 100%;
 }
 .footer-links {
   display: flex;
@@ -24,4 +26,14 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.u-chuu {
+  text-align: center;
+  align-items: center;
+}
+
+.footer-copyright p {
+  text-align: end;
+  margin-bottom: 0;
 }
