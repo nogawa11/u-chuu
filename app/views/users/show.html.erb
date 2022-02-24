@@ -5,13 +5,21 @@
     <% else %>
       <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="profile-avatar" alt="">
     <% end %>
-    <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+    <% if @user.name.present? %>
+      <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+    <% else %>
+      <h2 class="trispace ms-3">Profile</h2>
+    <% end %>
     <% if @user == current_user %>
       <%= link_to "<i class='fas fa-edit'></i> edit profile".html_safe, edit_user_path(@user), class: "add-review-button ms-3" %>
     <% end %>
   </div>
   <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-    <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+    <% if @user.name.present? %>
+      <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+    <% else %>
+      <h3 class="gray ">Reviews</h3>
+    <% end %>
     <%= link_to "<i class='fas fa-plus'></i> Leave a review".html_safe, new_user_user_review_path(user_id: params[:id]), class: "add-review-button" %>
   </div>
 
@@ -64,7 +72,11 @@
     </div>
   </div>
 
-  <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+  <% if @user.name.present? %>
+    <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+  <% else %>
+    <h3 class="gray border-bottom mt-4 pb-2 mb-3">Planets</h3>
+  <% end %>
   <% if @user.planets.first.present? %>
     <div class="planet-cards mt-3 mb-3">
       <% @user.planets.each do |planet| %>
@@ -94,7 +106,11 @@
     <h5 class="gray mb-3 ms-3"><em>No hosted planets</em></h5>
   <% end %>
 
-  <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+  <% if @user.name.present? %>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+  <% else %>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews given</h3>
+  <% end %>
   <% if @user.reviews.first.present? %>
     <% @user.reviews.each do |review| %>
       <div class="d-flex align-items-center">
