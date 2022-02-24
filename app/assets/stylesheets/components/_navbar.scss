@@ -68,17 +68,17 @@
 
 .search-bar {
   border-radius: 50px 0 0 50px;
-  border: 2px solid #18134b !important;
-  background-color: rgb(7, 7, 7);
-  color: 18134b;
+  border: 2px solid #1e175a !important;
+  background-color: rgb(23, 23, 24) !important;
+  color: #e2e2e2;
 }
 
 .search-button {
   border-radius: 0 50px 50px 0;
   padding-right: 16px;
-  border: 2px solid #18134b;
-  background-color:#18134b;
-  color: rgb(199, 199, 199);
+  border: 2px solid #1e175a;
+  background-color:#1e175a;
+  color: rgb(214, 214, 214);
   transition: 0.6s;
 
   &:hover {
