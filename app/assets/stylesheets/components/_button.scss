@@ -18,3 +18,16 @@
     color: #c795ff;
   }
 }
+
+.add-review-button-home {
+  color: rgb(128, 128, 128);
+  text-decoration: none !important;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+
+  &:hover {
+    color: rgb(147, 101, 255);
+  }
+}
