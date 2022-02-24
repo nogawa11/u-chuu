@@ -19,7 +19,7 @@
             <p><span class="dark-gray">Guest: </span><%= pending_reservation.user.name %></p>
             <p><%= pluralize((pending_reservation.end_date - pending_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(pending_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
             <p class="dark-gray"><%= pending_reservation.start_date %> to <%= pending_reservation.end_date %></p>
-            <div class="d-flex mt-2 justify-content-end">
+            <div class="d-flex mt-1 justify-content-end">
               <%= link_to "See details <i class='fas fa-arrow-right'></i>".html_safe, reservation_path(pending_reservation), class: "add-review-button-re" %>
             </div>
           </div>
@@ -46,7 +46,7 @@
             <p><span class="dark-gray">Guest: </span><%= approved_reservation.user.name %></p>
             <p><%= pluralize((approved_reservation.end_date - approved_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(approved_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
             <p class="dark-gray"><%= approved_reservation.start_date %> to <%= approved_reservation.end_date %></p>
-            <div class="d-flex mt-2 justify-content-end">
+            <div class="d-flex mt-1 justify-content-end">
               <%= link_to "See details <i class='fas fa-arrow-right'></i>".html_safe, reservation_path(approved_reservation), class: "add-review-button-re" %>
             </div>
           </div>
@@ -73,7 +73,7 @@
             <p><span class="dark-gray">Guest: </span><%= declined_reservation.user.name %></p>
             <p><%= pluralize((declined_reservation.end_date - declined_reservation.start_date).to_i, 'night') %> <i class="fas fa-moon me-2 ms-1"></i> <%= pluralize(declined_reservation.number_of_guests, 'guest') %> <i class="fas fa-users"></i></p>
             <p class="dark-gray"><%= declined_reservation.start_date %> to <%= declined_reservation.end_date %></p>
-            <div class="d-flex mt-2 justify-content-end">
+            <div class="d-flex mt-1 justify-content-end">
               <%= link_to "See details <i class='fas fa-arrow-right'></i>".html_safe, reservation_path(declined_reservation), class: "add-review-button-re" %>
             </div>
           </div>
