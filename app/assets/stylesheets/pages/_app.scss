@@ -1,0 +1,70 @@
+#app {
+  min-height: calc(100vh - 100px);
+  position: relative;
+  overflow: hidden;
+
+  .solar-system {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .planet {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: -240px;
+    right: -240px;
+    border: 2px dashed rgb(114, 114, 114);
+    animation: orbit 7s linear infinite;
+    border-radius: 50%;
+    z-index: -1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      bottom: 40px;
+      right: 50px;
+      border-radius: 50%;
+      background-color: rgb(114, 114, 114);
+    }
+
+    &#planet2 {
+      width: 590px;
+      height: 590px;
+      animation-duration: 9s;
+
+      &::after {
+        width: 80px;
+        height: 80px;
+
+      }
+    }
+
+    &#planet3 {
+      width: 680px;
+      height: 680px;
+      animation-duration: 12s;
+
+      &::after {
+        width: 80px;
+        height: 80px;
+        bottom: 50px;
+        right: 60px;
+      }
+    }
+  }
+
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

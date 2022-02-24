@@ -12,8 +12,13 @@
   <body>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
-    <div style="min-height: calc(100vh - 100px)">
-    <%= yield %>
+    <div id="app">
+      <%= yield %>
+      <div class="solar-system">
+        <div class="planet" id="planet1"></div>
+        <div class="planet" id="planet2"></div>
+        <div class="planet" id="planet3"></div>
+      </div>
     </div>
     <%= render 'shared/footer' %>
   </body>
