@@ -6,7 +6,7 @@
       <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="profile-avatar" alt="">
     <% end %>
     <% if @user.name.present? %>
-      <h2 class="trispace ms-3"><%= @user.name.downcase.capitalize %>'s Profile</h2>
+      <h2 class="trispace ms-3"><%= @user.name.capitalize %>'s Profile</h2>
     <% else %>
       <h2 class="trispace ms-3">Profile</h2>
     <% end %>
@@ -16,9 +16,9 @@
   </div>
   <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
     <% if @user.name.present? %>
-      <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
+      <h3 class="gray"><i class="fas fa-comments me-2"></i> Reviews for <%= @user.name.capitalize %></h3>
     <% else %>
-      <h3 class="gray ">Reviews</h3>
+      <h3 class="gray"><i class="fas fa-comments me-2"> Reviews</h3>
     <% end %>
     <% if @user != current_user %>
       <div class="d-flex flex-column" data-controller="show">
@@ -83,14 +83,14 @@
   </div>
   <% if @user.name.present? %>
     <div class="d-flex align-items-end justify-content-between border-bottom mt-4 pb-2 mb-3">
-      <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+      <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;"><i class="fas fa-globe-asia me-2"></i><span class="ms-1"><%= @user.name.capitalize %>'s Planets</span></h3>
       <% if @user == current_user %>
         <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
       <% end %>
     </div>
   <% else %>
   <div class="d-flex align-items-end justify-content-between border-bottom mt-4 pb-2 mb-3">
-    <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;">Planets</h3>
+    <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;"><i class="fas fa-globe-asia me-2"></i> <span class="ms-1">Planets</span></h3>
     <% if @user == current_user %>
       <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
     <% end %>
@@ -125,9 +125,9 @@
     <h5 class="gray mb-3 ms-3"><em>No hosted planets</em></h5>
   <% end %>
   <% if @user.name.present? %>
-    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews <%= @user.name.downcase.capitalize %> has given</h3>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3"><i class="fas fa-pen-nib me-2"></i> Reviews <%= @user.name.capitalize %> has given</h3>
   <% else %>
-    <h3 class="gray border-bottom pb-2 mb-3 pt-3">Reviews given</h3>
+    <h3 class="gray border-bottom pb-2 mb-3 pt-3"><i class="fas fa-pen-nib me-2"></i> Reviews given</h3>
   <% end %>
   <% if @user.reviews.first.present? %>
     <% @user.reviews.each do |review| %>
