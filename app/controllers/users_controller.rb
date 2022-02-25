@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     authorize @user
     @as_host_reviews = @user.user_reviews.where(review_type: 0)
     @as_guest_reviews = @user.user_reviews.where(review_type: 1)
+    @user_review = UserReview.new
+
     if @as_host_reviews.first.present?
       host_sum = []
       @as_host_reviews.each do |host_review|
