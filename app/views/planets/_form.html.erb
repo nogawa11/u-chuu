@@ -4,10 +4,10 @@
     <%= f.input :description %>
     <div class="row">
       <div class="col col-6">
-        <%= f.input :price_per_night %>
+        <%= f.input :price_per_night, input_html: { min: 1 } %>
       </div>
       <div class="col col-6">
-        <%= f.input :maximum_guests %>
+        <%= f.input :maximum_guests, input_html: { min: 1 } %>
       </div>
     </div>
     <div class="row">
