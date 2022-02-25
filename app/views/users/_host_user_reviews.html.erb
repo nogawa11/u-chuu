@@ -1,0 +1,21 @@
+<div class="d-flex align-items-end mb-1">
+  <h5 class="trispace gray" style="margin-bottom: 0;"><em>As a Host</em></h5>
+  <% if as_host_reviews.first.present? %>
+    <p class="gray ms-3" style="margin-bottom: 0;">(<%= host_rating %> <i class="fas fa-star warning stars"></i>)</p>
+  <% end %>
+</div>
+<% if as_host_reviews.first.present? %>
+  <% as_host_reviews.each do |host_review| %>
+    <div class="d-flex align-items-center mb-3">
+      <% (host_review.rating).times do %>
+        <i class="fas fa-star warning stars offwhite"></i>
+      <% end %>
+      <% (5 - host_review.rating).times do %>
+        <i class="far fa-star stars offwhite"></i>
+      <% end %>
+      <p class="offwhite ms-3" style="padding-bottom: 0; margin-bottom: 0;">- "<%= host_review.comment %>"</p>
+    </div>
+  <% end %>
+<% else %>
+  <p class="gray mb-3 ms-3"><em>No reviews received</em></p>
+<% end %>

@@ -1,0 +1,31 @@
+<% if user.name.present? %>
+  <h3 class="gray border-bottom pb-2 pt-3 mb-3">
+    <i class="fas fa-pen-nib me-2"></i>
+    Reviews
+    <%= user.name.capitalize %>
+    has given
+  </h3>
+<% else %>
+  <h3 class="gray border-bottom pb-2 pt-3 mb-3">
+    <i class="fas fa-pen-nib me-2"></i>
+    Reviews given
+  </h3>
+<% end %>
+<% if user.reviews.first.present? %>
+<% user.reviews.each do |review| %>
+  <div class="d-flex align-items-center">
+    <h5 class="trispace offwhite me-3" style="margin-bottom: 0; padding-bottom: 0;">
+      <%= link_to review.planet.name, planet_path(review.planet), style: "text-decoration: none;" %>
+    </h5>
+    <% (review.rating).times do %>
+      <i class="fas fa-star warning stars"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="far fa-star stars"></i>
+    <% end %>
+  </div>
+  <p class="gray"><%= review.content %></p>
+<% end %>
+<% else %>
+  <h5 class="gray ms-3 mb-3"><em>No reviews given</em></h5>
+<% end %>

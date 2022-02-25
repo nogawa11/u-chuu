@@ -1,0 +1,16 @@
+<% if user.photo.key.present? %>
+  <%= cl_image_tag(user.photo.key, class: 'profile-avatar') %>
+<% else %>
+  <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="profile-avatar" alt="">
+<% end %>
+<% if user.name.present? %>
+  <h2 class="trispace ms-3">
+    <%= user.name.capitalize %>
+    's Profile
+  </h2>
+<% else %>
+  <h2 class="trispace ms-3">Profile</h2>
+<% end %>
+<% if user == current_user %>
+  <%= link_to "<i class='fas fa-edit'></i> edit profile".html_safe, edit_user_path(user), class: "dark-gray-purple-link ms-3" %>
+<% end %>

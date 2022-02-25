@@ -1,5 +1,5 @@
-<div class="col col-6 black mt-3">
-  <div class="d-flex align-items-start justify-content-between me-3 ms-3">
+<div class="col col-6 mt-3">
+  <div class="d-flex align-items-start justify-content-between ms-3 me-3">
     <div class="d-flex align-items-center">
       <div class="me-1">
         <% if review.user.photo.present? %>
@@ -9,7 +9,9 @@
         <% end %>
       </div>
       <div class="ms-3">
-        <p class="white trispace pb-1" style="margin: 0"><%= link_to review.user.name, user_path(review.user), style: "text-decoration: none" %></p>
+        <p class="trispace white pb-1" style="margin: 0">
+          <%= link_to review.user.name, user_path(review.user), style: "text-decoration: none" %>
+          </p>
         <% (review.rating).times do %>
           <i class="fas fa-star warning stars"></i>
         <% end %>
@@ -21,7 +23,7 @@
     </div>
     <% if review.user == current_user %>
       <div>
-        <%= link_to "<i class='fas fa-times'></i>".html_safe, review_path(review), method: :delete, data: { confirm: "are you sure?"}, class: "add-review-button delete" %>
+        <%= link_to "<i class='fas fa-times'></i>".html_safe, review_path(review), method: :delete, data: { confirm: "are you sure?"}, class: "big-gray-purple-link" %>
       </div>
     <% end %>
   </div>
