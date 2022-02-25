@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :reservations, only: [:new, :create]
   end
+
+  resources :reviews, only: :destroy
   namespace :owner do
     resources :planets, only: :index
     resources :reservations, only: :index
