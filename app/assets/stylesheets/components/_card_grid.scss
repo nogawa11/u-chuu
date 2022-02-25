@@ -1,0 +1,37 @@
+// owner hosting cards
+
+.owner-hosting-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .owner-hosting-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .owner-hosting-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .owner-hosting-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .owner-hosting-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .owner-hosting-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

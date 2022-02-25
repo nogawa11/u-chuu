@@ -454,13 +454,13 @@
 // owner planet card
 
 .owner-planet-card {
-  overflow: hidden;
+  color: rgb(245, 245, 245);
+  position: relative;
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative;
-  color: rgb(245, 245, 245);
+  overflow: hidden;
 
   img {
     height: 250px;
@@ -469,36 +469,35 @@
   }
 
   h2 {
-    font-size: 20px;
     color: rgb(247, 247, 247);
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
     font-family: 'Trispace', sans-serif;
   }
 
   p {
+    font-family: $body-font;
     font-size: 12px;
     opacity: 0.9;
     margin: 0;
-    font-family: $body-font;
   }
 }
 
 .owner-planet-card .owner-planet-card-infos {
-  padding: 16px;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-// card-hosting-owner
+// owner hosting card
 
-.card-owner-hostings {
+.owner-hosting-card {
   overflow: hidden;
   height: 220px;
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(20, 19, 66, 0.9) 100%);
-  // background: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -511,74 +510,32 @@
   h5 {
     font-size: 14px;
     margin-bottom: 0;
-    margin-top: 0;
     margin-top: 4px;
   }
 
   p {
+    color: rgb(224, 224, 224);
     font-size: 14px;
     line-height: 1.4;
-    color: rgb(224, 224, 224);
     margin-bottom: 0;
     margin-top: 4px;
   }
+
+  img {
+    height: 100%;
+    width: 140px;
+    object-fit: cover;
+  }
+
+  h3 {
+    color: #e7e7e7;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
 }
 
-.card-owner-hostings img {
-  height: 100%;
-  width: 140px;
-  object-fit: cover;
-}
-
-.card-owner-hostings h3 {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0;
-  color: #e7e7e7;
-}
-
-.card-owner-hostings .card-owner-hostings-infos {
+.owner-hosting-card .owner-hosting-card-infos {
   padding: 16px;
   width: 100%;
-}
-
-.reservations-cards-owner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
