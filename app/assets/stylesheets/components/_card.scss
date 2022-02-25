@@ -176,83 +176,6 @@
   width: 100%;
 }
 
-// reservation show page
-
-.card-reservation {
-  overflow: hidden;
-  background-color: rgb(38, 38, 43);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border: gray;
-  border-radius: 4px;
-  color: rgb(228, 228, 228);
-}
-
-.card-details > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  margin-bottom: 8px;
-  border-radius: 4px;
-}
-
-.card-reservation h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.card-reservation p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-product {
-  overflow: hidden;
-  background: rgb(38, 38, 43);
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.card-product img {
-  height: 100%;
-  width: 180px;
-  object-fit: cover;
-  border-radius: 10px
-}
-
-.card-product h2 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  color: rgb(187, 187, 187);
-}
-
-.card-reservation-infos {
-  margin-top: 4px;
-}
-
-.card-product .card-product-infos {
-  padding-left: 12px;
-}
-
-
-.stars {
-  color: rgb(255, 231, 125) !important;
-}
-
-.stars-dark {
-  color: rgb(228, 186, 0) !important;
-}
 
 // owner hosting card
 
@@ -390,4 +313,39 @@
   align-items: flex-end;
   justify-content: space-between;
   padding: 16px;
+}
+
+// reservation show page
+
+.reservation-details-card {
+  color: rgb(228, 228, 228);
+  background-color: rgb(38, 38, 43);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: gray;
+  border-radius: 4px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  img {
+    height: 100%;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 10px
+  }
+}
+
+.reservation-details .reservation-details-infos {
+  padding-left: 12px;
 }

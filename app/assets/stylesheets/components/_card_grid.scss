@@ -3,31 +3,26 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
-
 @media (min-width: 100px) and (max-width: 575px) {
   .home-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 576px) {
   .home-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 768px) {
   .home-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 @media (min-width: 992px) {
   .home-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
-
 @media (min-width: 1200px) {
   .home-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -40,31 +35,26 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
-
 @media (min-width: 100px) and (max-width: 575px) {
   .owner-hosting-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 576px) {
   .owner-hosting-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 768px) {
   .owner-hosting-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 992px) {
   .owner-hosting-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 @media (min-width: 1200px) {
   .owner-hosting-cards {
     grid-template-columns: 1fr 1fr 1fr;
@@ -77,31 +67,26 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
-
 @media (min-width: 100px) and (max-width: 575px) {
   .planet-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 576px) {
   .planet-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 768px) {
   .planet-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 @media (min-width: 992px) {
   .planet-cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 @media (min-width: 1200px) {
   .planet-cards {
     grid-template-columns: 1fr 1fr 1fr;
@@ -114,31 +99,26 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
-
 @media (min-width: 100px) and (max-width: 575px) {
   .reservations-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 576px) {
   .reservations-cards {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 768px) {
   .reservations-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 @media (min-width: 992px) {
   .reservations-cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 @media (min-width: 1200px) {
   .reservations-cards {
     grid-template-columns: 1fr 1fr 1fr;

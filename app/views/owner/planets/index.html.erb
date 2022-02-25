@@ -1,7 +1,10 @@
 <div class="container mt-5 pt-5 pb-4">
-  <div class="d-flex align-items-center justify-content-between gap-3 ">
-    <h1 class="d-inline-block trispace offwhite"><i class="fas fa-globe-asia"></i> My Planets</h1>
-    <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"dark-gray-purple-link" %>
+  <div class="d-flex align-items-end justify-content-between gap-3 ">
+    <h1 class="d-inline-block trispace offwhite">
+      <i class="fas fa-globe-asia"></i>
+      My Planets
+    </h1>
+    <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"big-gray-purple-link pb-1" %>
   </div>
   <% if !@planets.first.present? %>
     <h5 class="mt-1 gray "><em>No planets at this time</em></h5>
