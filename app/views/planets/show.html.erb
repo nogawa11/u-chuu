@@ -22,44 +22,21 @@
       class="add-review-button"
       data-show-target="button"
       data-action="click->show#showForm">
-        <i class='fas fa-plus'></i>
-        Add a review
+      <i class='fas fa-plus'></i>
+      Add a review
     </button>
   </div>
-  <%= render "new_review" %>
   <% if @planet.reviews.first.present? %>
-    <ul class="list-group col col-6 black mt-2">
-      <% @planet.reviews.each do |review| %>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-              <div class="me-1">
-                <% if review.user.photo.present? %>
-                  <%= cl_image_tag(review.user.photo.key, class: 'review-avatar') %>
-                <% else %>
-                  <img src="https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" class="review-avatar" alt="">
-                <% end %>
-              </div>
-              <div class="ms-3">
-                <p class="white trispace pb-1" style="margin: 0"><%= link_to review.user.name, user_path(review.user), style: "text-decoration: none" %></p>
-                <% (review.rating).times do %>
-                  <i class="fas fa-star warning stars"></i>
-                <% end %>
-                <% (5 - review.rating).times do %>
-                  <i class="far fa-star stars"></i>
-                <% end %>
-                <p style="margin: 0" class="light-gray"><%= review.content %></p>
-              </div>
-            </div>
-            <% if review.user == @current_user %>
-              <div class="mt-1">
-                <%= link_to "<i class='fas fa-times'></i>".html_safe, review_path(review), method: :delete, data: { confirm: "Are you sure?"}, class:"add-review-button"  %>
-              </div>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+    <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+      <div id="new-review-form" style="padding-left: 0 !important;" class="container"  data-show-target="formContainer">
+        <div  class="col col-6 mt-2 card p-3 new-review-form">
+          <%= render 'reviews/form', planet: @planet, review: @review %>
+        </div>
+      </div>
+      <div data-insert-in-list-target="items">
+        <%= render @planet.reviews.order(created_at: :desc) %>
+      </div>
+    </div>
   <% else %>
     <p class="mt-3 gray"><em>No reviews at the moment</em></p>
   <% end %>

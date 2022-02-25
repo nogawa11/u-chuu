@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "button", "form", "createReviewButton", "content" ]
+  static targets = [ "button", "formContainer", "createReviewButton", "content" ]
 
   connect() {
     console.log("show controller connected");
@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   showForm() {
-    this.formTarget.classList.toggle("show")
+    this.formContainerTarget.classList.toggle("show")
   }
 
   isContentEmpty(e) {
