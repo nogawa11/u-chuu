@@ -1,25 +1,25 @@
 .card {
-  border-radius: 10px;
+  color: #000;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
+  border-radius: 10px;
 
   &__planet-info {
-    padding: 0.75rem 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0.75rem 1rem 0;
   }
 
   &__planet-reviews {
+    position: relative;
     justify-self: end;
     align-self: center;
-    position: relative;
     top: 5px;
   }
 
   &__planet-image {
-    width: 100%;
     height: 200px;
+    width: 100%;
   }
 }
 
@@ -245,58 +245,6 @@
   padding-left: 12px;
 }
 
-.reservations-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-
-  h2 {
-  color: black;
-  }
-
-  p {
-    color: rgb(75, 75, 77);
-  }
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.reservation-card-buttons {
-  width: 100%;
-}
 
 .stars {
   color: rgb(255, 231, 125) !important;
@@ -304,93 +252,6 @@
 
 .stars-dark {
   color: rgb(228, 186, 0) !important;
-}
-
-// reservation
-
-.card-reservation-home {
-  overflow: hidden;
-  // background: rgb(38, 38, 43);
-  background: rgb(29,0,42);
-  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  position: relative;
-}
-
-.card-reservation-home img {
-  height: 220px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.card-reservation-home h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-  color:#f0f0f0;
-}
-
-.card-reservation-home h5 {
-  color: rgb(194, 194, 194);
-  font-size: 16px;
-}
-
-.card-reservation-home p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color:rgb(150, 150, 150);
-  // color: rgb(21, 156, 21);
-}
-
-.card-reservation-home .card-reservation-home-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-// owner planet card
-
-.owner-planet-card {
-  color: rgb(245, 245, 245);
-  position: relative;
-  background: rgb(29,0,42);
-  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  overflow: hidden;
-
-  img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  h2 {
-    color: rgb(247, 247, 247);
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-    font-family: 'Trispace', sans-serif;
-  }
-
-  p {
-    font-family: $body-font;
-    font-size: 12px;
-    opacity: 0.9;
-    margin: 0;
-  }
-}
-
-.owner-planet-card .owner-planet-card-infos {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 16px;
 }
 
 // owner hosting card
@@ -440,4 +301,93 @@
 .owner-hosting-card .owner-hosting-card-infos {
   padding: 16px;
   width: 100%;
+}
+
+// owner planet card
+
+.owner-planet-card {
+  color: rgb(245, 245, 245);
+  position: relative;
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: rgb(247, 247, 247);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Trispace', sans-serif;
+  }
+
+  p {
+    font-family: $body-font;
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+  }
+}
+
+.owner-planet-card .owner-planet-card-infos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+// reservation card
+
+.reservation-card {
+  position: relative;
+  overflow: hidden;
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+
+  img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color:#f0f0f0;
+    font-family: 'Trispace', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  h5 {
+    color: rgb(194, 194, 194);
+    font-size: 16px;
+  }
+
+  p {
+    color:rgb(150, 150, 150);
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .reservation-card-buttons {
+    width: 100%;
+  }
+}
+
+.reservation-card .reservation-card-infos {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
 }

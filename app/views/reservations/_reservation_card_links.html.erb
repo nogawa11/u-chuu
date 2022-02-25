@@ -1,0 +1,3 @@
+<%= link_to "View", reservation_path(reservation), class: "btn btn-outline-warning reservation-card-buttons" %>
+<%= link_to "Edit", edit_reservation_path(reservation), class: "btn btn-outline-info reservation-card-buttons" %>
+<%= link_to "Cancel", reservation_path(reservation), class: "btn btn-outline-danger reservation-card-buttons", method: :delete, data: { confirm: "Are you sure?"} %>
