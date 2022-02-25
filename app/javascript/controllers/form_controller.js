@@ -5,7 +5,12 @@ export default class extends Controller {
 
   connect() {
     // Sets the default value of the start date input to today's date
-    this.startDateInputTarget.value = new Date().toISOString().split('T')[0];
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    this.startDateInputTarget.value = today.toISOString().split('T')[0];
+    this.endDateInputTarget.value = tomorrow.toISOString().split('T')[0];
     this.numberOfGuestsInputTarget.value = 1;
     this.pricePerNight = parseInt(this.pricePerNightTarget.innerHTML.replace(/\D/g, "")) / 100
     this.startDate = this.startDateInputTarget.value
