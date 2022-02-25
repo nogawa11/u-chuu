@@ -44,23 +44,6 @@
   }
 }
 
-.random {
-  border: 3px solid #330dda;
-  border-style: double;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: rgb(34, 34, 36);
-  color: rgb(207, 207, 207);
-  border-radius: 10px;
-  transition: 1s;
-
-  &:hover {
-    background-color: #230b91;
-  }
-}
-
 .anim-typewriter{
   animation: typewriter 4s steps(44) 1s 1 normal both,
              blinkTextCursor 500ms steps(44) infinite normal;
