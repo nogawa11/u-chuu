@@ -22,14 +22,17 @@
       class="add-review-button"
       data-show-target="button"
       data-action="click->show#showForm">
-        <i class='fas fa-plus'></i>
-        Add a review
+      <i class='fas fa-plus'></i>
+      Add a review
     </button>
   </div>
   <% if @planet.reviews.first.present? %>
     <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-      <%# <%= render "new_review" %>
-      <%= render 'reviews/form', planet: @planet, review: @review %>
+      <div id="new-review-form" style="padding-left: 0 !important;" class="container"  data-show-target="formContainer">
+        <div  class="col col-6 mt-2 card p-3 new-review-form">
+          <%= render 'reviews/form', planet: @planet, review: @review %>
+        </div>
+      </div>
       <div data-insert-in-list-target="items">
         <%= render @planet.reviews.order(created_at: :desc) %>
       </div>

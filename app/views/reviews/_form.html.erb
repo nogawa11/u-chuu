@@ -1,9 +1,8 @@
-<div id="new-review-form" style="padding-left: 0 !important;" class="container"  data-show-target="form">
-  <div  class="col col-6 mt-2 card p-3 new-review-form">
+
     <%= simple_form_for([planet, review],
                       data: {
                       insert_in_list_target: "form",
-                      action: "submit->insert-in-list#send"
+                      action: "submit->insert-in-list#send submit->show#showForm"
                     }) do |f| %>
       <div class="star-rating">
         <% 5.times do |i| %>
@@ -13,5 +12,3 @@
       <%= f.input :content, input_html: { data: { "show-target": "content", action: "input->show#isContentEmpty" } } %>
       <%= f.submit "Create Review", id:"create-review-button", class:"btn btn-primary m-auto mt-1", data: { "show-target": "createReviewButton" }, style: "width: 100%", disabled: true %>
     <% end %>
-  </div>
-</div>
