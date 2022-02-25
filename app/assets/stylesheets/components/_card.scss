@@ -28,159 +28,134 @@
   grid-row: 2 / 3
 }
 
-// home cards
-
-.home-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-
-  h2 {
-  color: black;
-  }
-
-  p {
-    color: rgb(75, 75, 77);
-  }
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .home-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .home-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
+// home card
 
 .home-card {
+  position: relative;
   overflow: hidden;
-  // background: rgb(238, 238, 238);
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative;
   border: none;
   transition: all 0.25s;
 
   &:hover {
     transform: scale(1.03);
   }
-}
 
-.recommended {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+  .home-card-links {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 
-.home-card > img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
 
-.home-card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-  color: rgb(230, 230, 230);
-}
+  h2 {
+    color: rgb(230, 230, 230);
+    font-family: 'Trispace', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
 
-.home-card h5 {
-  color: rgb(80, 80, 80);
-  font-size: 16px;
-}
+  h5 {
+    color: rgb(80, 80, 80);
+    font-size: 16px;
+  }
 
-.home-card p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color: rgb(196, 196, 196);
+  p {
+    color: rgb(196, 196, 196);
+    font-size: 12px;
+    margin: 0;
+    opacity: .7;
+  }
 }
 
 .home-card .home-card-infos {
-  padding: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
 }
 
 .home-card-infos .home-card-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
   width: 40px;
+  top: -20px;
+  right: 16px;
 }
 
-// reservations show page
-// =======
-// planets
+// planet card
 
-.card-planet {
+.planet-card {
+  color: rgb(245, 245, 245);
+  position: relative;
   overflow: hidden;
-  // background: rgb(0,0,0);
-  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative;
-  color: rgb(245, 245, 245);
   transition: all 0.25s;
 
   &:hover {
     transform: scale(1.03);
   }
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: rgb(247, 247, 247);
+    font-size: 20px;
+    font-family: 'Trispace', sans-serif;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    font-family: $body-font;
+    color: rgb(163, 163, 163);
+  }
+
+  .planet-card-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .planet-rating {
+    right: 10;
+    top: 20;
+    i {
+      color: rgb(255, 231, 125);
+    }
+  }
+
+  .planet-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.card-planet > img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-planet h2 {
-  font-size: 20px;
-  color: rgb(247, 247, 247);
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-}
-
-.card-planet-price {
+.planet-card-price {
   color: rgb(177, 166, 180) !important;
 
   p {
@@ -188,90 +163,17 @@
   }
 }
 
-.card-planet-text {
-  width: 100%;
-  height: 100%;
-}
-
-.planet-rating {
-  right: 10;
-  top: 20;
-  i {
-    color: rgb(255, 231, 125);
-  }
-}
-
-.card-planet p {
-  font-size: 12px;
-  opacity: 0.9;
-  margin: 0;
-  font-family: $body-font;
-  color: rgb(163, 163, 163);
-}
-
-.planet-card-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card-planet .card-planet-infos {
-  padding: 16px;
+.planet-card .planet-card-infos {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  // position: relative;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-.card-planet-infos {
-  // position: absolute;
-  right: 16px;
+.planet-card-infos {
   top: -20px;
-  width: 40px;
+  right: 16px;
   width: 100%;
-}
-
-.planet-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .planet-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .planet-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
 
 // reservation show page

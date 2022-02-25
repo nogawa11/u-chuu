@@ -1,0 +1,31 @@
+<% planets.each do |planet| %>
+  <div class="planet-card">
+    <% if planet.photos.first.present? %>
+      <%= cl_image_tag(planet.photos.first.key) %>
+    <% else %>
+      <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+    <% end %>
+    <div class="planet-card-infos">
+      <div class="planet-card-text">
+        <div class="d-flex align-items-end">
+          <h2 class="me-2"><%= planet.name %></h2>
+          <p class= "planet-rating d-flex align-items-center justify-content-end">
+            <span class="me-1">
+              <%= planet.reviews.present? ? "#{(planet.reviews.reduce(0) { |sum, curr| curr.rating + sum } / planet.reviews.size).to_f.round(1) }" : "N/A" %>
+            </span>
+            <i class="fas fa-star me-2"></i>
+            (<%= planet.reviews.count %> reviews)
+          </p>
+        </div>
+        <p class="mt-2"><%= planet.description.chars.first(75).join ... %></p>
+        <div class="planet-card-price d-flex justify-content-end mt-2">
+          <p>
+            <strong><%= number_to_currency(planet.price_per_night, precision: 0) %></strong>
+            per night
+          </p>
+        </div>
+      </div>
+    </div>
+    <%= link_to "", planet_path(planet, params[:browse]), class: "planet-card-link" %>
+  </div>
+<% end %>
