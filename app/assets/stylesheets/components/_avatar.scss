@@ -1,6 +1,8 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
 }
 .avatar-large {
   width: 56px;
@@ -19,12 +21,16 @@
   border: white 1px solid;
 }
 
-.profile-avatar {
+.profile-avatar{
   width: 75px;
   border-radius: 50%;
+  height: 75px;
+  object-fit: cover;
 }
 
 .review-avatar {
   width: 65px;
   border-radius: 50%;
+  height: 65px;
+  object-fit: cover;
 }

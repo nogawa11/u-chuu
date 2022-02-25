@@ -20,7 +20,9 @@
     <% else %>
       <h3 class="gray ">Reviews</h3>
     <% end %>
-    <%= link_to "<i class='fas fa-plus'></i> Leave a review".html_safe, new_user_user_review_path(user_id: params[:id]), class: "add-review-button" %>
+    <% if @user != current_user %>
+      <%= link_to "<i class='fas fa-plus'></i> Leave a review".html_safe, new_user_user_review_path(user_id: params[:id]), class: "add-review-button" %>
+    <% end %>
   </div>
 
   <div class="row">
@@ -73,9 +75,19 @@
   </div>
 
   <% if @user.name.present? %>
-    <h3 class="gray border-bottom mt-4 pb-2 mb-3"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+    <div class="d-flex align-items-end justify-content-between border-bottom mt-4 pb-2 mb-3">
+      <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;"><%= @user.name.downcase.capitalize %>'s Planets</h3>
+      <% if @user == current_user %>
+        <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
+      <% end %>
+    </div>
   <% else %>
-    <h3 class="gray border-bottom mt-4 pb-2 mb-3">Planets</h3>
+  <div class="d-flex align-items-end justify-content-between border-bottom mt-4 pb-2 mb-3">
+    <h3 class="gray" style="margin-bottom: 0; padding-bottom: 0;">Planets</h3>
+    <% if @user == current_user %>
+      <%= link_to "<i class='fas fa-plus'></i> Add a planet".html_safe, new_planet_path, class:"add-review-button" %>
+    <% end %>
+  </div>
   <% end %>
   <% if @user.planets.first.present? %>
     <div class="planet-cards mt-3 mb-3">
