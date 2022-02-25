@@ -14,7 +14,7 @@
       <%= link_to "<i class='fas fa-edit'></i> edit profile".html_safe, edit_user_path(@user), class: "add-review-button ms-3" %>
     <% end %>
   </div>
-  <div class="d-flex justify-content-between align-items-start border-bottom mb-3">
+  <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
     <% if @user.name.present? %>
       <h3 class="gray ">Reviews for <%= @user.name.downcase.capitalize %></h3>
     <% else %>
