@@ -10,16 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar' %>
-    <div id="app">
-      <div class="solar-system">
-        <div class="planet" id="planet1"></div>
-        <div class="planet" id="planet2"></div>
-        <div class="planet" id="planet3"></div>
+      <%= render 'shared/flashes' %>
+      <%= render 'shared/navbar' %>
+      <div id="app">
+        <div class="solar-system">
+          <div class="planet" id="planet1"></div>
+          <div class="planet" id="planet2"></div>
+          <div class="planet" id="planet3"></div>
+        </div>
+        <%= yield %>
       </div>
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
+      <%= render 'shared/footer' %>
   </body>
 </html>
