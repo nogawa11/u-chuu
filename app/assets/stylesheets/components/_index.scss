@@ -11,6 +11,16 @@ body {
   background-color: #080808;
   color: rgb(250, 250, 250);
   overflow-x: hidden;
+  cursor: url('UChuuCursor2.svg'), auto !important;
+  a:hover{
+    cursor: url('UChuuCursorHover3.svg'), auto !important;
+  }
+  input:hover{
+    cursor: url('UChuuCursorHover3.svg'), auto !important;
+  }
+  button:hover{
+    cursor: url('UChuuCursorHover3.svg'), auto !important;
+  }
 }
 
 .gray {
