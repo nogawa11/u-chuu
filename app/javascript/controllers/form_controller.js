@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ "nights", "pricePerNight", "price", "total", "startDateInput", "endDateInput", "numberOfGuestsInput" ]
 
   connect() {
-    // Sets the default value of the start date input to today's date
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -40,7 +39,6 @@ export default class extends Controller {
     this.setPrice(e)
   }
 
-
   setPrice(e) {
     this.nightsTarget.innerText = (this.#getDateDifference(e));
     let price = parseInt(this.nightsTarget.innerText) * this.pricePerNight;
@@ -50,8 +48,6 @@ export default class extends Controller {
 
   /* ----------------------------- Private methods ---------------------------- */
   #getDateDifference(e) {
-    // Gets the difference between the start and end dates
-    // Returns the difference in days
     const endDate = this.endDateInputTarget.value
     const startDate = this.startDateInputTarget.value
     const difference = Math.abs(new Date(endDate) - new Date(startDate))

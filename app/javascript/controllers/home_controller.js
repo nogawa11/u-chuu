@@ -5,7 +5,6 @@ export default class extends Controller {
 
   connect() {
     console.log('Hello from home_controller.js')
-    // console.log(this.testTarget)
   }
 
   typingEffect() {

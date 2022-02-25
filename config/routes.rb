@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:show, :edit, :update] do
-    resources :user_reviews, only: [:new, :create]
+  resources :users, only: %i[show edit update] do
+    resources :user_reviews, only: %i[new create]
   end
 
   root to: 'pages#home'
   resources :reservations
   resources :planets
   resources :planets do
-    resources :reviews, only: [:new, :create]
-    resources :reservations, only: [:new, :create]
+    resources :reviews, only: %i[new create]
+    resources :reservations, only: %i[new create]
   end
 
   resources :reviews, only: :destroy
