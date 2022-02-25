@@ -1,0 +1,8 @@
+<h5>
+  <%= pluralize((reservation.end_date - reservation.start_date).to_i, 'night')%>
+  <i class="fas fa-moon me-2 ms-1"></i>
+</h5>
+<h5>
+  <%= pluralize(reservation.number_of_guests, 'guest')%>
+  <i class="fas fa-users ms-1"></i>
+</h5>

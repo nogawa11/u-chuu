@@ -1,0 +1,36 @@
+<% reservations.each do |reservation| %>
+  <div class="owner-hosting-card">
+    <% if reservation.planet.photos.first.present? %>
+      <%= cl_image_tag(reservation.planet.photos.first.key) %>
+    <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
+    <% end %>
+    <div class="owner-hosting-card-infos">
+      <div class="d-flex align-items-end justify-content-between mt-1">
+        <h3 class="trispace"><%= reservation.planet.name %></h3>
+        <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_reservation_path(reservation), class: "light-gray-purple-link" %>
+      </div>
+      <% if reservation.reservation_status == 'pending' %>
+        <h5 class="mt-2 gray">Pending <i class="fas fa-clock ms-1 me-1 "></i></h5>
+      <% elsif reservation.reservation_status == 'approved' %>
+        <h5 class="mt-2 green">Approved <i class="fas fa-check"></i></h5>
+      <% elsif reservation.reservation_status == 'declined' %>
+        <h5 class="mt-2 red">Declined <i class="fas fa-times"></i></h5>
+      <% end %>
+      <p>
+        <span class="dark-gray">Guest: </span>
+        <%= link_to reservation.user.name, user_path(reservation.user), class: "offwhite" %>
+      </p>
+      <p>
+        <%= pluralize((reservation.end_date - reservation.start_date).to_i, 'night') %>
+        <i class="fas fa-moon ms-1 me-2 "></i>
+        <%= pluralize(reservation.number_of_guests, 'guest') %>
+        <i class="fas fa-users"></i>
+      </p>
+      <p class="dark-gray"><%= reservation.start_date %> to <%= reservation.end_date %></p>
+      <div class="d-flex justify-content-end mt-1 ">
+        <%= link_to "See details <i class='fas fa-arrow-right'></i>".html_safe, reservation_path(reservation), class: "light-gray-purple-link" %>
+      </div>
+    </div>
+  </div>
+<% end %>

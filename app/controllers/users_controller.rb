@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[edit update]
+
   def show
     @user = policy_scope(User).find_by_id(params[:id])
     authorize @user
@@ -23,13 +25,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    authorize @user
   end
 
   def update
-    @user = current_user
-    authorize @user
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -39,5 +37,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:photo, :name)
+  end
+
+  def set_user
+    @user = current_user
+    authorize @user
   end
 end

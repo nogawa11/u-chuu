@@ -1,25 +1,25 @@
 .card {
-  border-radius: 10px;
+  color: #000;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
+  border-radius: 10px;
 
   &__planet-info {
-    padding: 0.75rem 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0.75rem 1rem 0;
   }
 
   &__planet-reviews {
+    position: relative;
     justify-self: end;
     align-self: center;
-    position: relative;
     top: 5px;
   }
 
   &__planet-image {
-    width: 100%;
     height: 200px;
+    width: 100%;
   }
 }
 
@@ -28,159 +28,134 @@
   grid-row: 2 / 3
 }
 
-// home cards
+// home card
 
-.home-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-
-  h2 {
-  color: black;
-  }
-
-  p {
-    color: rgb(75, 75, 77);
-  }
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .home-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .home-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .home-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-.card-home {
+.home-card {
+  position: relative;
   overflow: hidden;
-  // background: rgb(238, 238, 238);
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative;
   border: none;
   transition: all 0.25s;
 
   &:hover {
     transform: scale(1.03);
   }
+
+  .home-card-links {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+
+  h2 {
+    color: rgb(230, 230, 230);
+    font-family: 'Trispace', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  h5 {
+    color: rgb(80, 80, 80);
+    font-size: 16px;
+  }
+
+  p {
+    color: rgb(196, 196, 196);
+    font-size: 12px;
+    margin: 0;
+    opacity: .7;
+  }
 }
 
-.recommended {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card-home > img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
-
-.card-home h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-  color: rgb(230, 230, 230);
-}
-
-.card-home h5 {
-  color: rgb(80, 80, 80);
-  font-size: 16px;
-}
-
-.card-home p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color: rgb(196, 196, 196);
-}
-
-.card-home .card-home-infos {
-  padding: 16px;
+.home-card .home-card-infos {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-.card-home-infos .card-home-user {
+.home-card-infos .home-card-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
   width: 40px;
+  top: -20px;
+  right: 16px;
 }
 
-// reservations show page
-// =======
-// planets
+// planet card
 
-.card-planet {
+.planet-card {
+  color: rgb(245, 245, 245);
+  position: relative;
   overflow: hidden;
-  // background: rgb(0,0,0);
-  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  position: relative;
-  color: rgb(245, 245, 245);
   transition: all 0.25s;
 
   &:hover {
     transform: scale(1.03);
   }
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: rgb(247, 247, 247);
+    font-size: 20px;
+    font-family: 'Trispace', sans-serif;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    font-family: $body-font;
+    color: rgb(163, 163, 163);
+  }
+
+  .planet-card-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .planet-rating {
+    right: 10;
+    top: 20;
+    i {
+      color: rgb(255, 231, 125);
+    }
+  }
+
+  .planet-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.card-planet > img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-planet h2 {
-  font-size: 20px;
-  color: rgb(247, 247, 247);
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-}
-
-.card-planet-price {
+.planet-card-price {
   color: rgb(177, 166, 180) !important;
 
   p {
@@ -188,320 +163,27 @@
   }
 }
 
-.card-planet-text {
-  width: 100%;
-  height: 100%;
-}
-
-.planet-rating {
-  right: 10;
-  top: 20;
-  i {
-    color: rgb(255, 231, 125);
-  }
-}
-
-.card-planet p {
-  font-size: 12px;
-  opacity: 0.9;
-  margin: 0;
-  font-family: $body-font;
-  color: rgb(163, 163, 163);
-}
-
-.planet-card-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card-planet .card-planet-infos {
-  padding: 16px;
+.planet-card .planet-card-infos {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  // position: relative;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-.card-planet-infos {
-  // position: absolute;
-  right: 16px;
+.planet-card-infos {
   top: -20px;
-  width: 40px;
+  right: 16px;
   width: 100%;
 }
 
-.planet-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .planet-cards {
-    grid-template-columns: 1fr;
-  }
-}
+// owner hosting card
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .planet-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .planet-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// reservation show page
-
-.card-reservation {
-  overflow: hidden;
-  background-color: rgb(38, 38, 43);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border: gray;
-  border-radius: 4px;
-  color: rgb(228, 228, 228);
-}
-
-.card-details > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  margin-bottom: 8px;
-  border-radius: 4px;
-}
-
-.card-reservation h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.card-reservation p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-product {
-  overflow: hidden;
-  background: rgb(38, 38, 43);
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.card-product img {
-  height: 100%;
-  width: 180px;
-  object-fit: cover;
-  border-radius: 10px
-}
-
-.card-product h2 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  color: rgb(187, 187, 187);
-}
-
-.card-reservation-infos {
-  margin-top: 4px;
-}
-
-.card-product .card-product-infos {
-  padding-left: 12px;
-}
-
-.reservations-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-
-  h2 {
-  color: black;
-  }
-
-  p {
-    color: rgb(75, 75, 77);
-  }
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .reservations-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .reservations-cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.reservation-card-buttons {
-  width: 100%;
-}
-
-.stars {
-  color: rgb(255, 231, 125) !important;
-}
-
-.stars-dark {
-  color: rgb(228, 186, 0) !important;
-}
-
-// reservation
-
-.card-reservation-home {
-  overflow: hidden;
-  // background: rgb(38, 38, 43);
-  background: rgb(29,0,42);
-  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  position: relative;
-}
-
-.card-reservation-home img {
-  height: 220px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.card-reservation-home h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-  color:#f0f0f0;
-}
-
-.card-reservation-home h5 {
-  color: rgb(194, 194, 194);
-  font-size: 16px;
-}
-
-.card-reservation-home p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color:rgb(150, 150, 150);
-  // color: rgb(21, 156, 21);
-}
-
-.card-reservation-home .card-reservation-home-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-// card planet owner
-
-.card-planet-owner {
-  overflow: hidden;
-  // background: rgb(0,0,0);
-  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
-  background: rgb(29,0,42);
-  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  position: relative;
-  color: rgb(245, 245, 245);
-}
-
-.card-planet-owner > img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-planet-owner h2 {
-  font-size: 20px;
-  color: rgb(247, 247, 247);
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-}
-
-.card-planet-owner p {
-  font-size: 12px;
-  opacity: 0.9;
-  margin: 0;
-  font-family: $body-font;
-}
-
-.card-planet-owner .card-planet-owner-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  // position: relative;
-}
-
-// card-hosting-owner
-
-.card-owner-hostings {
+.owner-hosting-card {
   overflow: hidden;
   height: 220px;
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(20, 19, 66, 0.9) 100%);
-  // background: rgb(38, 38, 43);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -514,74 +196,156 @@
   h5 {
     font-size: 14px;
     margin-bottom: 0;
-    margin-top: 0;
     margin-top: 4px;
   }
 
   p {
+    color: rgb(224, 224, 224);
     font-size: 14px;
     line-height: 1.4;
-    color: rgb(224, 224, 224);
     margin-bottom: 0;
     margin-top: 4px;
   }
+
+  img {
+    height: 100%;
+    width: 140px;
+    object-fit: cover;
+  }
+
+  h3 {
+    color: #e7e7e7;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
 }
 
-.card-owner-hostings img {
-  height: 100%;
-  width: 140px;
-  object-fit: cover;
-}
-
-.card-owner-hostings h3 {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0;
-  color: #e7e7e7;
-}
-
-.card-owner-hostings .card-owner-hostings-infos {
+.owner-hosting-card .owner-hosting-card-infos {
   padding: 16px;
   width: 100%;
 }
 
-.reservations-cards-owner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-}
+// owner planet card
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
+.owner-planet-card {
+  color: rgb(245, 245, 245);
+  position: relative;
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: rgb(247, 247, 247);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Trispace', sans-serif;
+  }
+
+  p {
+    font-family: $body-font;
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
+.owner-planet-card .owner-planet-card-infos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+// reservation card
+
+.reservation-card {
+  position: relative;
+  overflow: hidden;
+  background: rgb(29,0,42);
+  background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+
+  img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    color:#f0f0f0;
+    font-family: 'Trispace', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  h5 {
+    color: rgb(194, 194, 194);
+    font-size: 16px;
+  }
+
+  p {
+    color:rgb(150, 150, 150);
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .reservation-card-buttons {
+    width: 100%;
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr;
+.reservation-card .reservation-card-infos {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+// reservation show page
+
+.reservation-details-card {
+  color: rgb(228, 228, 228);
+  background-color: rgb(38, 38, 43);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: gray;
+  border-radius: 4px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  img {
+    height: 100%;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 10px
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .reservations-cards-owner {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.reservation-details .reservation-details-infos {
+  padding-left: 12px;
 }

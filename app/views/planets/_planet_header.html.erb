@@ -1,0 +1,13 @@
+<h1 class="mt-4 trispace offwhite"><%= planet.name %></h1>
+<div class="d-flex justify-content-between">
+  <div>
+    <span class="gray">
+      <%= reviews_avg %>
+      <i class="fas fa-star warning ms-1 stars"></i>
+    </span>
+    <span class="gray">
+      (<%= pluralize(planet.reviews.count, 'review') %>)
+    </span>
+  </div>
+  <%= link_to "<i class='fas fa-undo'></i> Back to planets".html_safe, planets_path(browse: params[:format]), class: "dark-gray-purple-link" %>
+</div>

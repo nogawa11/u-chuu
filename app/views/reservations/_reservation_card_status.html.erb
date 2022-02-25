@@ -1,0 +1,18 @@
+<h5>
+  <% if reservation.approved? %>
+    <span class="ms-1 green">
+      Approved
+      <i class="fas fa-check"></i>
+    </span>
+  <% elsif reservation.pending? %>
+    <span class="ms-1" style="color: gray;">
+      Pending
+      <i class="fas fa-clock"></i>
+    </span>
+  <% elsif reservation.declined? %>
+    <span class="ms-1 red">
+    Declined
+    <i class="fas fa-times"></i>
+    </span>
+  <% end %>
+</h5>
