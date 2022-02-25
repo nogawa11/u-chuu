@@ -15,11 +15,21 @@ class ReviewsController < ApplicationController
     # @review.user = @user
     @review.planet = @planet
 
-    if @review.save
-      redirect_to planet_path(@planet)
-    else
-      render :new
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to planet_path(@planet) }
+        format.json # normal Rails flow, which is to render a views/reviews/create.json.jbuilder
+      else
+        format.html { render "planets/show" }
+        format.json
+      end
     end
+
+    # if @review.save
+    #   redirect_to planet_path(@planet)
+    # else
+    #   render :new
+    # end
   end
 
   def destroy
