@@ -1,25 +1,20 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: %i[show edit update destroy]
+  before_action :set_planet, only: %i[new create]
 
   def index
     @reservations = policy_scope(Reservation).where(user: current_user).order(start_date: :asc)
   end
 
   def new
-    @planet = Planet.find(params[:planet_id])
-    # @reservation = Restaurant.new
     @reservation = current_user.reservations.new
     authorize @reservation
   end
 
   def create
-    @planet = Planet.find(params[:planet_id])
-    # @user = current_user
-    # @reservation = Reservation.new(reservation_params)
     @reservation = current_user.reservations.new(reservation_params)
     authorize @reservation
     @reservation.planet = @planet
-    # @reservation.user = @user
     @reservation.reservation_status = 'pending'
     if @reservation.save
       redirect_to reservations_path
@@ -59,6 +54,10 @@ class ReservationsController < ApplicationController
   def set_reservation
     @reservation = Reservation.find(params[:id])
     authorize @reservation
+  end
+
+  def set_planet
+    @planet = Planet.find(params[:planet_id])
   end
 
   def reservation_params
