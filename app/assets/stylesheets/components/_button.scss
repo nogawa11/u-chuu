@@ -8,6 +8,10 @@
   &:hover {
     color: rgb(147, 101, 255);
   }
+
+  &.delete {
+    padding: 0.5rem;
+  }
 }
 
 .add-review-button-re {
