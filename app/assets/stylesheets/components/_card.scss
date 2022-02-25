@@ -451,47 +451,44 @@
   position: relative;
 }
 
-// card planet owner
+// owner planet card
 
-.card-planet-owner {
+.owner-planet-card {
   overflow: hidden;
-  // background: rgb(0,0,0);
-  // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(29,0,29,1) 100%);
   background: rgb(29,0,42);
   background: linear-gradient(0deg, rgba(29,0,42,0.9) 0%, rgba(0,74,153,0.9) 100%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   position: relative;
   color: rgb(245, 245, 245);
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: rgb(247, 247, 247);
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Trispace', sans-serif;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    font-family: $body-font;
+  }
 }
 
-.card-planet-owner > img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-planet-owner h2 {
-  font-size: 20px;
-  color: rgb(247, 247, 247);
-  font-weight: bold;
-  margin: 0;
-  font-family: 'Trispace', sans-serif;
-}
-
-.card-planet-owner p {
-  font-size: 12px;
-  opacity: 0.9;
-  margin: 0;
-  font-family: $body-font;
-}
-
-.card-planet-owner .card-planet-owner-infos {
+.owner-planet-card .owner-planet-card-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  // position: relative;
 }
 
 // card-hosting-owner

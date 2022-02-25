@@ -7,24 +7,6 @@
     <h5 class="gray mt-1"><em>No planets at this time</em></h5>
   <% end %>
   <div class="planet-cards mt-2 mb-5">
-    <% @planets.each do |planet| %>
-      <div class="card-planet-owner">
-        <% if planet.photos.first.present? %>
-          <%= cl_image_tag(planet.photos.first.key) %>
-        <% else %>
-          <%= image_tag "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" %>
-        <% end %>
-        <div class="mt-3 mb-3">
-          <div class="d-flex justify-content-center mb-1">
-            <h5 class="trispace"><%= planet.name %></h5>
-          </div>
-          <div class="d-flex justify-content-center ms-3 me-3 mb-3 gap-2">
-            <%= link_to "View", planet_path(planet), class:"btn btn-outline-warning reservation-card-buttons" %>
-            <%= link_to "Edit", edit_planet_path(planet), class:"btn btn-outline-info reservation-card-buttons" %>
-            <%= link_to "Delete", planet_path(planet), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-outline-danger reservation-card-buttons"  %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'owner_planet_card', planets: @planets %>
   </div>
 </div>
