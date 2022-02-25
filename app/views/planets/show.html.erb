@@ -53,7 +53,7 @@
             </div>
             <% if review.user == @current_user %>
               <div class="mt-1">
-                <%= link_to "<i class='fas fa-times'></i> Remove".html_safe, review_path(review), method: :delete, data: { confirm: "Are you sure?"}, class:"add-review-button"  %>
+                <%= link_to "<i class='fas fa-times'></i>".html_safe, review_path(review), method: :delete, data: { confirm: "Are you sure?"}, class:"add-review-button"  %>
               </div>
             <% end %>
           </div>
