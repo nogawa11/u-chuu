@@ -12,7 +12,9 @@
     <% else %>
       <h3 class="gray"><i class="fas fa-comments me-2"> Reviews</h3>
     <% end %>
-    <%= render 'add_review', user: @user %>
+    <% if @user != current_user %>
+      <%= link_to "<i class='fas fa-plus'></i> Add a review".html_safe, new_user_user_review_path(@user), class: "dark-gray-purple-link" %>
+    <% end %>
   </div>
   <div class="row">
     <div class="col">

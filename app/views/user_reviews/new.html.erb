@@ -1,0 +1,13 @@
+<div class="container mt-5 pt-5">
+  <div class="col col-8 m-auto">
+    <div class="d-flex justify-content-center">
+      <h2 class="offwhite trispace mb-3">
+        Leave a review for
+        <%= @user.name.capitalize %>
+      </h2>
+    </div>
+    <div class="card p-3">
+      <%= render 'form', user: @user %>
+    </div>
+</div>
+</div>

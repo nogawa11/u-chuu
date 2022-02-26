@@ -1,0 +1,11 @@
+<%= simple_form_for [@user, @user_review] do |f| %>
+  <div class="star-rating">
+    <% 5.times do |i| %>
+      <input type="radio" name="user_review[rating]" value="<%= i + 1 %>"
+      <%= "checked" if i == 2%> />
+    <% end %>
+  </div>
+  <%= f.input :comment %>
+  <%= f.input :review_type, collection: UserReview.review_types.keys, label: "Was #{@user.name.capitalize} a host or guest?", include_blank: false %>
+  <%= f.submit "Add a Review", class:"btn btn-primary m-auto mt-1", style: "width: 100%" %>
+<% end %>
