@@ -1,4 +1,4 @@
-# 📚 U-chuu
+# U-chuu
 
 A fun space-themed marketplace app where users can rent and list fictional planets.
 
